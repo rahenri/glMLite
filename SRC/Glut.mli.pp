@@ -32,36 +32,36 @@
 
 (** {2 Initialization} *)
 
-external glutInit: argv:string array -> string array = "ml_glutinit"
+external init: argv:string array -> string array = "ml_glutinit"
 (** {{:http://www.opengl.org/resources/libraries/glut/spec3/node10.html}
     doc on opengl.org} *)
 
-external glutInitWindowPosition: x:int -> y:int -> unit = "ml_glutinitwindowposition"
-external glutInitWindowSize: width:int -> height:int -> unit = "ml_glutinitwindowsize"
+external initWindowPosition: x:int -> y:int -> unit = "ml_glutinitwindowposition"
+external initWindowSize: width:int -> height:int -> unit = "ml_glutinitwindowsize"
 (** {{:http://www.opengl.org/resources/libraries/glut/spec3/node11.html}
     doc on opengl.org} *)
 
 #include "enums/init_mode.inc.ml"
-external glutInitDisplayMode: mode:init_mode list -> unit = "ml_glutinitdisplaymode"
+external initDisplayMode: mode:init_mode list -> unit = "ml_glutinitdisplaymode"
 (** {{:http://www.opengl.org/resources/libraries/glut/spec3/node12.html}
     doc on opengl.org} *)
 
-external glutInitDisplayString: string -> unit = "ml_glutinitdisplaystring"
+external initDisplayString: string -> unit = "ml_glutinitdisplaystring"
 (** {{:http://www.opengl.org/documentation/specs/glut/spec3/node70.html}
     doc on opengl.org} *)
 
-external glutInitContextVersion: major:int -> minor:int -> unit = "ml_glutinitcontextversion"
+external initContextVersion: major:int -> minor:int -> unit = "ml_glutinitcontextversion"
 
 #include "enums/context_profile.inc.ml"
-external glutInitContextProfile: profile:context_profile -> unit = "ml_glutinitcontextprofile"
+external initContextProfile: profile:context_profile -> unit = "ml_glutinitcontextprofile"
 
 (** {2 Beginning Event Processing} *)
 
-external glutMainLoop: unit -> unit = "ml_glutmainloop"
+external mainLoop: unit -> unit = "ml_glutmainloop"
 (** {{:http://www.opengl.org/resources/libraries/glut/spec3/node14.html}
     doc on opengl.org} *)
 
-external glutLeaveMainLoop: unit -> unit = "ml_glutleavemainloop"
+external leaveMainLoop: unit -> unit = "ml_glutleavemainloop"
 (** function only available with some implementations (ex: 
     {{:http://freeglut.sourceforge.net/}FreeGlut} or
     {{:http://openglut.sourceforge.net/}OpenGlut}) *)
@@ -70,68 +70,68 @@ external glutLeaveMainLoop: unit -> unit = "ml_glutleavemainloop"
 (** {2 Window Management} *)
 
 type window_id
-external glutCreateWindow: title:string -> window_id = "ml_glutcreatewindow"
+external createWindow: title:string -> window_id = "ml_glutcreatewindow"
 (** {{:http://www.opengl.org/resources/libraries/glut/spec3/node16.html}
     doc on opengl.org} *)
 
-external glutSetWindow: win:window_id -> unit = "ml_glutsetwindow"
-external glutGetWindow: unit -> window_id = "ml_glutgetwindow"
+external setWindow: win:window_id -> unit = "ml_glutsetwindow"
+external getWindow: unit -> window_id = "ml_glutgetwindow"
 (** {{:http://www.opengl.org/resources/libraries/glut/spec3/node18.html}
     doc on opengl.org} *)
 
-external glutCreateSubWindow: win:window_id -> x:int -> y:int -> width:int -> height:int -> window_id = "ml_glutcreatesubwindow"
+external createSubWindow: win:window_id -> x:int -> y:int -> width:int -> height:int -> window_id = "ml_glutcreatesubwindow"
 (** {{:http://www.opengl.org/resources/libraries/glut/spec3/node17.html}
     doc on opengl.org} *)
 
-external glutDestroyWindow: win:window_id -> unit = "ml_glutdestroywindow"
+external destroyWindow: win:window_id -> unit = "ml_glutdestroywindow"
 (** {{:http://www.opengl.org/resources/libraries/glut/spec3/node19.html}
     doc on opengl.org} *)
 
-external glutPostRedisplay: unit -> unit = "ml_glutpostredisplay"
+external postRedisplay: unit -> unit = "ml_glutpostredisplay"
 (** {{:http://www.opengl.org/resources/libraries/glut/spec3/node20.html}
     doc on opengl.org} *)
 
-external glutSwapBuffers: unit -> unit = "ml_glutswapbuffers"
+external swapBuffers: unit -> unit = "ml_glutswapbuffers"
 (** {{:http://www.opengl.org/resources/libraries/glut/spec3/node21.html}
     doc on opengl.org} *)
 
-external glutPositionWindow: x:int -> y:int -> unit = "ml_glutpositionwindow"
+external positionWindow: x:int -> y:int -> unit = "ml_glutpositionwindow"
 (** {{:http://www.opengl.org/resources/libraries/glut/spec3/node22.html}
     doc on opengl.org} *)
 
-external glutReshapeWindow: width:int -> height:int -> unit = "ml_glutreshapewindow"
+external reshapeWindow: width:int -> height:int -> unit = "ml_glutreshapewindow"
 (** {{:http://www.opengl.org/resources/libraries/glut/spec3/node23.html}
     doc on opengl.org} *)
 
-external glutFullScreen: unit -> unit = "ml_glutfullscreen"
+external fullScreen: unit -> unit = "ml_glutfullscreen"
 (** {{:http://www.opengl.org/resources/libraries/glut/spec3/node24.html}
     doc on opengl.org} *)
 
-external glutPopWindow: unit -> unit = "ml_glutpopwindow"
-external glutPushWindow: unit -> unit = "ml_glutpushwindow"
+external popWindow: unit -> unit = "ml_glutpopwindow"
+external pushWindow: unit -> unit = "ml_glutpushwindow"
 (** {{:http://www.opengl.org/resources/libraries/glut/spec3/node25.html}
     doc on opengl.org} *)
 
-external glutShowWindow: unit -> unit = "ml_glutshowwindow"
-external glutHideWindow: unit -> unit = "ml_gluthidewindow"
-external glutIconifyWindow: unit -> unit = "ml_gluticonifywindow"
+external showWindow: unit -> unit = "ml_glutshowwindow"
+external hideWindow: unit -> unit = "ml_gluthidewindow"
+external iconifyWindow: unit -> unit = "ml_gluticonifywindow"
 (** {{:http://www.opengl.org/resources/libraries/glut/spec3/node26.html}
     doc on opengl.org} *)
 
-external glutSetWindowTitle: name:string -> unit = "ml_glutsetwindowtitle"
-external glutSetIconTitle: name:string -> unit = "ml_glutseticontitle"
+external setWindowTitle: name:string -> unit = "ml_glutsetwindowtitle"
+external setIconTitle: name:string -> unit = "ml_glutseticontitle"
 (** {{:http://www.opengl.org/resources/libraries/glut/spec3/node27.html}
     doc on opengl.org} *)
 
 
 #include "enums/cursor_type.inc.ml"
-external glutSetCursor: cursor:cursor_type -> unit = "ml_glutsetcursor"
+external setCursor: cursor:cursor_type -> unit = "ml_glutsetcursor"
 (** {{:http://www.opengl.org/resources/libraries/glut/spec3/node28.html}
     doc on opengl.org} *)
 
-external glutWarpPointer: x:int -> y:int -> unit = "ml_glutwarppointer"
+external warpPointer: x:int -> y:int -> unit = "ml_glutwarppointer"
 
-external glutIgnoreKeyRepeat: ignore:bool -> unit = "ml_glutignorekeyrepeat"
+external ignoreKeyRepeat: ignore:bool -> unit = "ml_glutignorekeyrepeat"
 
 
 (* * {2 Overlay Management} *)
@@ -155,38 +155,38 @@ val glutCreateMenu: menu:(value:int -> unit) -> menu_id
 (** {{:http://www.opengl.org/resources/libraries/glut/spec3/node36.html}
     doc on opengl.org} *)
 
-external glutGetMenu: unit -> menu_id = "ml_glutgetmenu"
-external glutSetMenu: menu:menu_id -> unit = "ml_glutsetmenu"
+external getMenu: unit -> menu_id = "ml_glutgetmenu"
+external setMenu: menu:menu_id -> unit = "ml_glutsetmenu"
 (** {{:http://www.opengl.org/resources/libraries/glut/spec3/node37.html}
     doc on opengl.org} *)
 
-external glutDestroyMenu: menu:menu_id -> unit = "ml_glutdestroymenu"
+external destroyMenu: menu:menu_id -> unit = "ml_glutdestroymenu"
 (** {{:http://www.opengl.org/resources/libraries/glut/spec3/node38.html}
     doc on opengl.org} *)
 
-external glutAddMenuEntry: name:string -> value:int -> unit = "ml_glutaddmenuentry"
+external addMenuEntry: name:string -> value:int -> unit = "ml_glutaddmenuentry"
 (** {{:http://www.opengl.org/resources/libraries/glut/spec3/node39.html}
     doc on opengl.org} *)
 
-external glutAddSubMenu: name:string -> menu:menu_id -> unit = "ml_glutaddsubmenu"
+external addSubMenu: name:string -> menu:menu_id -> unit = "ml_glutaddsubmenu"
 (** {{:http://www.opengl.org/resources/libraries/glut/spec3/node40.html}
     doc on opengl.org} *)
 
-external glutChangeToMenuEntry: entry:int -> name:string -> value:int -> unit = "ml_glutchangetomenuentry"
+external changeToMenuEntry: entry:int -> name:string -> value:int -> unit = "ml_glutchangetomenuentry"
 (** {{:http://www.opengl.org/resources/libraries/glut/spec3/node41.html}
     doc on opengl.org} *)
 
-external glutChangeToSubMenu: entry:int -> name:string -> menu:menu_id -> unit = "ml_glutchangetosubmenu"
+external changeToSubMenu: entry:int -> name:string -> menu:menu_id -> unit = "ml_glutchangetosubmenu"
 (** {{:http://www.opengl.org/resources/libraries/glut/spec3/node42.html}
     doc on opengl.org} *)
 
-external glutRemoveMenuItem: entry:int -> unit = "ml_glutremovemenuitem"
+external removeMenuItem: entry:int -> unit = "ml_glutremovemenuitem"
 (** {{:http://www.opengl.org/resources/libraries/glut/spec3/node43.html}
     doc on opengl.org} *)
 
 #include "enums/mouse_button.inc.ml"
-external glutAttachMenu: button:mouse_button -> unit = "ml_glutattachmenu"
-external glutDetachMenu: button:mouse_button -> unit = "ml_glutdetachmenu"
+external attachMenu: button:mouse_button -> unit = "ml_glutattachmenu"
+external detachMenu: button:mouse_button -> unit = "ml_glutdetachmenu"
 (** {{:http://www.opengl.org/resources/libraries/glut/spec3/node44.html}
     doc on opengl.org} *)
 
@@ -254,7 +254,7 @@ val glutIdleFunc: idle:(unit -> unit) -> unit
 (** {{:http://www.opengl.org/resources/libraries/glut/spec3/node63.html}
     doc on opengl.org} *)
 
-external glutRemoveIdleFunc: unit -> unit = "ml_glutremoveidlefunc"
+external removeIdleFunc: unit -> unit = "ml_glutremoveidlefunc"
 
 val glutTimerFunc: msecs:int -> timer:(value:'a -> unit) -> value:'a -> unit
 (** {{:http://www.opengl.org/resources/libraries/glut/spec3/node64.html}
@@ -267,12 +267,12 @@ val glutTimerFunc: msecs:int -> timer:(value:'a -> unit) -> value:'a -> unit
     glutCopyColormap
 *)
 
-external glutSetColor: cell:int -> r:float -> g:float -> b:float -> unit = "ml_glutsetcolor"
+external setColor: cell:int -> r:float -> g:float -> b:float -> unit = "ml_glutsetcolor"
 (** {{:http://www.opengl.org/resources/libraries/glut/spec3/node66.html}
     doc on opengl.org}
     to use with [glIndex] *)
 
-external glutGetColor: cell:int -> float * float * float = "ml_glutgetcolor"
+external getColor: cell:int -> float * float * float = "ml_glutgetcolor"
 (** {{:http://www.opengl.org/resources/libraries/glut/spec3/node67.html}
     doc on opengl.org} *)
 
@@ -281,7 +281,7 @@ external glutGetColor: cell:int -> float * float * float = "ml_glutgetcolor"
 (** {2 State Retrieval} *)
 
 #include "enums/get_state.inc.ml"
-external glutGet: state:get_state -> int = "ml_glutget"
+external get: state:get_state -> int = "ml_glutget"
 (** {{:http://www.opengl.org/documentation/specs/glut/spec3/node70.html}
     doc on opengl.org} *)
 
@@ -290,7 +290,7 @@ external glutGet: state:get_state -> int = "ml_glutget"
 *)
 
 #include "enums/glut_device.inc.ml"
-external glutDeviceGet: device:glut_device -> int = "ml_glutdeviceget"
+external deviceGet: device:glut_device -> int = "ml_glutdeviceget"
 (** {{:http://www.opengl.org/resources/libraries/glut/spec3/node72.html}
     doc on opengl.org} *)
 
@@ -299,15 +299,15 @@ type active_modifier =
   | GLUT_ACTIVE_CTRL
   | GLUT_ACTIVE_ALT
 
-external glutGetModifiers: unit -> active_modifier list = "ml_glutgetmodifiers"
+external getModifiers: unit -> active_modifier list = "ml_glutgetmodifiers"
 (** {{:http://www.opengl.org/resources/libraries/glut/spec3/node73.html}
     doc on opengl.org} *)
 
-external glutGetModifiersB: unit -> bool * bool * bool = "ml_glutgetmodifiers_t"
+external getModifiersB: unit -> bool * bool * bool = "ml_glutgetmodifiers_t"
 (** same as [glutGetModifiers] but returns a tuple
 {[let (shift, ctrl, alt) = glutGetModifiersB() in]} *)
 
-external glutExtensionSupported: extension:string -> bool = "ml_glutextensionsupported"
+external extensionSupported: extension:string -> bool = "ml_glutextensionsupported"
 (** {{:http://www.opengl.org/documentation/specs/glut/spec3/node74.html}
     doc on opengl.org} *)
 
@@ -331,62 +331,62 @@ type bitmap_font =
   | GLUT_BITMAP_HELVETICA_12
   | GLUT_BITMAP_HELVETICA_18
 
-external glutBitmapCharacter: font:bitmap_font -> c:char -> unit = "ml_glutbitmapcharacter"
+external bitmapCharacter: font:bitmap_font -> c:char -> unit = "ml_glutbitmapcharacter"
 (** {{:http://www.opengl.org/resources/libraries/glut/spec3/node76.html}
     doc on opengl.org} *)
 
-external glutBitmapWidth: font:bitmap_font -> c:char -> int = "ml_glutbitmapwidth"
+external bitmapWidth: font:bitmap_font -> c:char -> int = "ml_glutbitmapwidth"
 (** {{:http://www.opengl.org/resources/libraries/glut/spec3/node77.html}
     doc on opengl.org} *)
 
-external glutStrokeCharacter: font:stroke_font -> c:char -> unit = "ml_glutstrokecharacter"
+external strokeCharacter: font:stroke_font -> c:char -> unit = "ml_glutstrokecharacter"
 (** {{:http://www.opengl.org/resources/libraries/glut/spec3/node78.html}
     doc on opengl.org} *)
 
-external glutStrokeWidth: font:stroke_font -> c:char -> int = "ml_glutstrokewidth"
+external strokeWidth: font:stroke_font -> c:char -> int = "ml_glutstrokewidth"
 (** {{:http://www.opengl.org/resources/libraries/glut/spec3/node79.html}
     doc on opengl.org} *)
 
-external glutBitmapHeight: font:bitmap_font -> int = "ml_glutbitmapheight"
-external glutStrokeHeight: font:stroke_font -> float = "ml_glutstrokeheight"
+external bitmapHeight: font:bitmap_font -> int = "ml_glutbitmapheight"
+external strokeHeight: font:stroke_font -> float = "ml_glutstrokeheight"
 
-external glutBitmapLength: font:bitmap_font -> str:string -> int = "ml_glutbitmaplength"
-external glutStrokeLength: font:stroke_font -> str:string -> int = "ml_glutstrokelength"
+external bitmapLength: font:bitmap_font -> str:string -> int = "ml_glutbitmaplength"
+external strokeLength: font:stroke_font -> str:string -> int = "ml_glutstrokelength"
 
 
 (** {2 Geometric Object Rendering} *)
 (** {{:http://www.opengl.org/resources/libraries/glut/spec3/node80.html}
     doc on opengl.org} *)
 
-external glutWireSphere: radius:float -> slices:int -> stacks:int -> unit = "ml_glutwiresphere"
-external glutSolidSphere: radius:float -> slices:int -> stacks:int -> unit = "ml_glutsolidsphere"
-external glutWireCone: base:float -> height:float -> slices:int -> stacks:int -> unit = "ml_glutwirecone"
-external glutSolidCone: base:float -> height:float -> slices:int -> stacks:int -> unit = "ml_glutsolidcone"
-external glutWireCube: size:float -> unit = "ml_glutwirecube"
-external glutSolidCube: size:float -> unit = "ml_glutsolidcube"
-external glutWireTorus: innerRadius:float -> outerRadius:float -> sides:int -> rings:int -> unit = "ml_glutwiretorus"
-external glutSolidTorus: innerRadius:float -> outerRadius:float -> sides:int -> rings:int -> unit = "ml_glutsolidtorus"
-external glutWireDodecahedron: unit -> unit = "ml_glutwiredodecahedron"
-external glutSolidDodecahedron: unit -> unit = "ml_glutsoliddodecahedron"
-external glutWireTeapot: size:float -> unit = "ml_glutwireteapot"
-external glutSolidTeapot: size:float -> unit = "ml_glutsolidteapot"
-external glutWireOctahedron: unit -> unit = "ml_glutwireoctahedron"
-external glutSolidOctahedron: unit -> unit = "ml_glutsolidoctahedron"
-external glutWireTetrahedron: unit -> unit = "ml_glutwiretetrahedron"
-external glutSolidTetrahedron: unit -> unit = "ml_glutsolidtetrahedron"
-external glutWireIcosahedron: unit -> unit = "ml_glutwireicosahedron"
-external glutSolidIcosahedron: unit -> unit = "ml_glutsolidicosahedron"
+external wireSphere: radius:float -> slices:int -> stacks:int -> unit = "ml_glutwiresphere"
+external solidSphere: radius:float -> slices:int -> stacks:int -> unit = "ml_glutsolidsphere"
+external wireCone: base:float -> height:float -> slices:int -> stacks:int -> unit = "ml_glutwirecone"
+external solidCone: base:float -> height:float -> slices:int -> stacks:int -> unit = "ml_glutsolidcone"
+external wireCube: size:float -> unit = "ml_glutwirecube"
+external solidCube: size:float -> unit = "ml_glutsolidcube"
+external wireTorus: innerRadius:float -> outerRadius:float -> sides:int -> rings:int -> unit = "ml_glutwiretorus"
+external solidTorus: innerRadius:float -> outerRadius:float -> sides:int -> rings:int -> unit = "ml_glutsolidtorus"
+external wireDodecahedron: unit -> unit = "ml_glutwiredodecahedron"
+external solidDodecahedron: unit -> unit = "ml_glutsoliddodecahedron"
+external wireTeapot: size:float -> unit = "ml_glutwireteapot"
+external solidTeapot: size:float -> unit = "ml_glutsolidteapot"
+external wireOctahedron: unit -> unit = "ml_glutwireoctahedron"
+external solidOctahedron: unit -> unit = "ml_glutsolidoctahedron"
+external wireTetrahedron: unit -> unit = "ml_glutwiretetrahedron"
+external solidTetrahedron: unit -> unit = "ml_glutsolidtetrahedron"
+external wireIcosahedron: unit -> unit = "ml_glutwireicosahedron"
+external solidIcosahedron: unit -> unit = "ml_glutsolidicosahedron"
 
-external glutWireRhombicDodecahedron: unit -> unit = "ml_glutwirerhombicdodecahedron"
+external wireRhombicDodecahedron: unit -> unit = "ml_glutwirerhombicdodecahedron"
 (** {{:http://openglut.sourceforge.net/group__geometry.html#ga18}
     doc from openglut} *)
 
-external glutSolidRhombicDodecahedron: unit -> unit = "ml_glutsolidrhombicdodecahedron"
+external solidRhombicDodecahedron: unit -> unit = "ml_glutsolidrhombicdodecahedron"
 (** {{:http://openglut.sourceforge.net/group__geometry.html#ga19}
     doc from openglut} *)
 
 (* TODO
-external glutWireSierpinskiSponge: num_levels:int -> offset:float * float * float -> scale:float -> unit = "ml_glutwiresierpinskisponge"
+external wireSierpinskiSponge: num_levels:int -> offset:float * float * float -> scale:float -> unit = "ml_glutwiresierpinskisponge"
 
 void glutWireSierpinskiSponge( int num_levels, const GLdouble offset[3], GLdouble scale );
 http://openglut.sourceforge.net/group__geometry.html#ga20
@@ -400,16 +400,16 @@ http://openglut.sourceforge.net/group__geometry.html#ga21
 (** {{:http://openglut.sourceforge.net/group__gamemode.html}
     doc from OpenGlut} *)
 
-external glutGameModeString: mode:string -> unit = "ml_glutgamemodestring"
+external gameModeString: mode:string -> unit = "ml_glutgamemodestring"
 
-external glutEnterGameMode: unit -> unit = "ml_glutentergamemode"
+external enterGameMode: unit -> unit = "ml_glutentergamemode"
 (** {{:http://openglut.sourceforge.net/group__gamemode.html#ga1}
     doc from openglut} *)
 
-external glutLeaveGameMode: unit -> unit = "ml_glutleavegamemode"
+external leaveGameMode: unit -> unit = "ml_glutleavegamemode"
 
 #include "enums/game_mode.inc.ml"
-external glutGameModeGet: game_mode:game_mode -> int = "ml_glutgamemodeget"
+external gameModeGet: game_mode:game_mode -> int = "ml_glutgamemodeget"
 
 
 

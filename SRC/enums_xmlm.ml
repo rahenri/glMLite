@@ -166,7 +166,7 @@ let () =
   let gl_version =
     try Sys.argv.(1)
     with
-      Invalid_argument "index out of bounds" ->
+      Invalid_argument _ ->
         error "Error: give the GL version as first argument, \
                example: GL_VERSION_1_4"
   in
@@ -174,7 +174,7 @@ let () =
   let input_file =
     try Sys.argv.(2)
     with
-      Invalid_argument "index out of bounds" ->
+      Invalid_argument _ ->
         error "Usage: %s <gl-version> 'enums.list.xml'" Sys.argv.(0)
   in
 
@@ -186,14 +186,14 @@ let () =
       | "-cr" -> Output_c_to_ml
       | r -> error "Wrong Request '%s', should be -c, -cr or -ml" r
     with
-      Invalid_argument "index out of bounds" ->
+      Invalid_argument _ ->
         error "Error: give the requested language: -c, -cr or -ml"
   in
 
   let glenum_req =
     try Sys.argv.(4)
     with
-      Invalid_argument "index out of bounds" ->
+      Invalid_argument _ ->
         error "Error: give the gl enum name to dump (example: color_material_mode)"
   in
 

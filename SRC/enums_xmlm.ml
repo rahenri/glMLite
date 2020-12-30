@@ -69,6 +69,13 @@ let rec print_rec = function
 let enum_val_ml req_version = function
   | E(((_,"enum"), attrs), [(D glenum)])
     when (enum_version attrs) <= req_version ->
+      let parts = String.split_on_char '_' glenum in
+      let glenum = match parts with
+        | "GL" :: tl
+        | "GLU" :: tl
+        | "GLUT" :: tl -> String.concat "_" tl
+        | _ -> glenum
+      in
       if List.mem glenum !deprecated
       then Printf.printf "  | %s  (** deprecated in core OpenGL 3. *)\n" glenum
       else Printf.printf "  | %s\n" glenum;

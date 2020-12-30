@@ -44,123 +44,123 @@ http://www.opengl.org/code/
 
 #include "enums/primitive.inc.ml"
 
-external glBegin: primitive:primitive -> unit = "ml_glbegin" NOALLOC
+external begin_: primitive:primitive -> unit = "ml_glbegin" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glBegin.xml}
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
 
-external glEnd: unit -> unit = "ml_glend" NOALLOC
+external end_: unit -> unit = "ml_glend" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glEnd.xml}
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
 
-external glVertex2: x:float -> y:float -> unit = "ml_glvertex2" NOALLOC
+external vertex2: x:float -> y:float -> unit = "ml_glvertex2" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glVertex.xml}
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
 
-external glVertex3: x:float -> y:float -> z:float -> unit = "ml_glvertex3" NOALLOC
+external vertex3: x:float -> y:float -> z:float -> unit = "ml_glvertex3" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glVertex.xml}
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
 
-external glVertex4: x:float -> y:float -> z:float -> w:float -> unit = "ml_glvertex4" NOALLOC
+external vertex4: x:float -> y:float -> z:float -> w:float -> unit = "ml_glvertex4" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glVertex.xml}
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
 
-external glVertex2v: float * float -> unit = "ml_glvertex2v" NOALLOC
+external vertex2v: float * float -> unit = "ml_glvertex2v" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glVertex.xml}
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
 
-external glVertex3v: float * float * float -> unit = "ml_glvertex3v" NOALLOC
+external vertex3v: float * float * float -> unit = "ml_glvertex3v" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glVertex.xml}
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
 
-external glVertex4v: float * float * float * float -> unit = "ml_glvertex4v" NOALLOC
+external vertex4v: float * float * float * float -> unit = "ml_glvertex4v" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glVertex.xml}
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
 
-external glNormal3: nx:float -> ny:float -> nz:float -> unit = "ml_glnormal3" NOALLOC
+external normal3: nx:float -> ny:float -> nz:float -> unit = "ml_glnormal3" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glNormal.xml}
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
 
-external glNormal3v: v:float * float * float -> unit = "ml_glnormal3v" NOALLOC
+external normal3v: v:float * float * float -> unit = "ml_glnormal3v" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glNormal.xml}
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
 
-external glIndex: c:float -> unit = "ml_glindexd" NOALLOC
-external glIndexi: c:int -> unit = "ml_glindexi" NOALLOC
+external index: c:float -> unit = "ml_glindexd" NOALLOC
+external indexi: c:int -> unit = "ml_glindexi" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glIndex.xml}
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
 
-external glColor3: r:float -> g:float -> b:float -> unit = "ml_glcolor3" NOALLOC
+external color3: r:float -> g:float -> b:float -> unit = "ml_glcolor3" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glColor.xml}
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
 
-external glColor4: r:float -> g:float -> b:float -> a:float -> unit = "ml_glcolor4" NOALLOC
+external color4: r:float -> g:float -> b:float -> a:float -> unit = "ml_glcolor4" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glColor.xml}
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
 
-external glColor3v: v:float * float * float -> unit = "ml_glcolor3v" NOALLOC
+external color3v: v:float * float * float -> unit = "ml_glcolor3v" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glColor.xml}
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
 
-external glColor4v: v:float * float * float * float -> unit = "ml_glcolor4v" NOALLOC
+external color4v: v:float * float * float * float -> unit = "ml_glcolor4v" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glColor.xml}
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
 
-external glColor3c: r:char -> g:char -> b:char -> unit = "ml_glcolor3c" NOALLOC
-external glColor4c: r:char -> g:char -> b:char -> a:char -> unit = "ml_glcolor4c" NOALLOC
+external color3c: r:char -> g:char -> b:char -> unit = "ml_glcolor3c" NOALLOC
+external color4c: r:char -> g:char -> b:char -> a:char -> unit = "ml_glcolor4c" NOALLOC
 (** not clamped to range [\[0.0 - 1.0\]] but [\['\000' - '\255'\]] *)
 
-external glColor3cv: v:char * char * char -> unit = "ml_glcolor3cv" NOALLOC
+external color3cv: v:char * char * char -> unit = "ml_glcolor3cv" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glColor.xml}
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
 
-external glColor4cv: v:char * char * char * char -> unit = "ml_glcolor4cv" NOALLOC
+external color4cv: v:char * char * char * char -> unit = "ml_glcolor4cv" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glColor.xml}
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
 
-external glEdgeFlag: flag:bool -> unit = "ml_gledgeflag" NOALLOC
+external edgeFlag: flag:bool -> unit = "ml_gledgeflag" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glEdgeFlag.xml}
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
 
-external glRasterPos2: x:float -> y:float -> unit = "ml_glrasterpos2d" NOALLOC
-external glRasterPos3: x:float -> y:float -> z:float -> unit = "ml_glrasterpos3d" NOALLOC
-external glRasterPos4: x:float -> y:float -> z:float -> w:float -> unit = "ml_glrasterpos4d" NOALLOC
+external rasterPos2: x:float -> y:float -> unit = "ml_glrasterpos2d" NOALLOC
+external rasterPos3: x:float -> y:float -> z:float -> unit = "ml_glrasterpos3d" NOALLOC
+external rasterPos4: x:float -> y:float -> z:float -> w:float -> unit = "ml_glrasterpos4d" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glRasterPos.xml}
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
 
-external glRasterPos2i: x:int -> y:int -> unit = "ml_glrasterpos2i" NOALLOC
-external glRasterPos3i: x:int -> y:int -> z:int -> unit = "ml_glrasterpos3i" NOALLOC
-external glRasterPos4i: x:int -> y:int -> z:int -> w:int -> unit = "ml_glrasterpos4i" NOALLOC
+external rasterPos2i: x:int -> y:int -> unit = "ml_glrasterpos2i" NOALLOC
+external rasterPos3i: x:int -> y:int -> z:int -> unit = "ml_glrasterpos3i" NOALLOC
+external rasterPos4i: x:int -> y:int -> z:int -> w:int -> unit = "ml_glrasterpos4i" NOALLOC
 
-external glRasterPos2v: v:float * float -> unit = "ml_glrasterpos2dv" NOALLOC
-external glRasterPos3v: v:float * float * float -> unit = "ml_glrasterpos3dv" NOALLOC
-external glRasterPos4v: v:float * float * float * float -> unit = "ml_glrasterpos4dv" NOALLOC
-external glRasterPos2iv: v:int * int -> unit = "ml_glrasterpos2iv" NOALLOC
-external glRasterPos3iv: v:int * int * int -> unit = "ml_glrasterpos3iv" NOALLOC
-external glRasterPos4iv: v:int * int * int * int -> unit = "ml_glrasterpos4iv" NOALLOC
+external rasterPos2v: v:float * float -> unit = "ml_glrasterpos2dv" NOALLOC
+external rasterPos3v: v:float * float * float -> unit = "ml_glrasterpos3dv" NOALLOC
+external rasterPos4v: v:float * float * float * float -> unit = "ml_glrasterpos4dv" NOALLOC
+external rasterPos2iv: v:int * int -> unit = "ml_glrasterpos2iv" NOALLOC
+external rasterPos3iv: v:int * int * int -> unit = "ml_glrasterpos3iv" NOALLOC
+external rasterPos4iv: v:int * int * int * int -> unit = "ml_glrasterpos4iv" NOALLOC
 
 (** All glRasterPos* functions are deprecated in core OpenGL 3. *)
 
-external glRecti: x1:int -> y1:int -> x2:int -> y2:int -> unit = "ml_glrecti" NOALLOC
-external glRect: x1:float -> y1:float -> x2:float -> y2:float -> unit = "ml_glrect" NOALLOC
+external recti: x1:int -> y1:int -> x2:int -> y2:int -> unit = "ml_glrecti" NOALLOC
+external rect: x1:float -> y1:float -> x2:float -> y2:float -> unit = "ml_glrect" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glRect.xml}
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
@@ -169,16 +169,16 @@ external glRect: x1:float -> y1:float -> x2:float -> y2:float -> unit = "ml_glre
 (** {3 Transformations} *)
 
 #include "enums/matrix_mode.inc.ml"
-external glMatrixMode: mode:matrix_mode -> unit = "ml_glmatrixmode" NOALLOC
+external matrixMode: mode:matrix_mode -> unit = "ml_glmatrixmode" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glMatrixMode.xml}
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
 
-external glViewport: x:int -> y:int -> width:int -> height:int -> unit = "ml_glviewport" NOALLOC
+external viewport: x:int -> y:int -> width:int -> height:int -> unit = "ml_glviewport" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glViewport.xml}
     manual page on opengl.org} *)
 
-external glOrtho: left:float -> right:float -> bottom:float ->
+external ortho: left:float -> right:float -> bottom:float ->
                   top:float -> near:float -> far:float -> unit
          = "ml_glortho_bytecode"
            "ml_glortho_native"
@@ -187,7 +187,7 @@ external glOrtho: left:float -> right:float -> bottom:float ->
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
 
-external glFrustum: left:float -> right:float -> bottom:float ->
+external frustum: left:float -> right:float -> bottom:float ->
                     top:float -> near:float -> far:float -> unit
          = "ml_glfrustum_bytecode"
            "ml_glfrustum_native"
@@ -196,32 +196,32 @@ external glFrustum: left:float -> right:float -> bottom:float ->
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
 
-external glPushMatrix: unit -> unit = "ml_glpushmatrix" NOALLOC
-external glPopMatrix: unit -> unit = "ml_glpopmatrix" NOALLOC
+external pushMatrix: unit -> unit = "ml_glpushmatrix" NOALLOC
+external popMatrix: unit -> unit = "ml_glpopmatrix" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glPushMatrix.xml}
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
 
-external glLoadIdentity: unit -> unit = "ml_glloadidentity" NOALLOC
+external loadIdentity: unit -> unit = "ml_glloadidentity" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glLoadIdentity.xml}
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
 
 
-external glRotatev: angle:float -> vec:float * float * float -> unit = "ml_glrotatev" NOALLOC
-external glRotate: angle:float -> x:float -> y:float -> z:float -> unit = "ml_glrotate" NOALLOC
+external rotatev: angle:float -> vec:float * float * float -> unit = "ml_glrotatev" NOALLOC
+external rotate: angle:float -> x:float -> y:float -> z:float -> unit = "ml_glrotate" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glRotate.xml}
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
 
-external glTranslatev: float * float * float -> unit = "ml_gltranslatev" NOALLOC
-external glTranslate: x:float -> y:float -> z:float -> unit = "ml_gltranslate" NOALLOC
+external translatev: float * float * float -> unit = "ml_gltranslatev" NOALLOC
+external translate: x:float -> y:float -> z:float -> unit = "ml_gltranslate" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glTranslate.xml}
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
 
-external glScalev: float * float * float -> unit = "ml_glscalev" NOALLOC
-external glScale: x:float -> y:float -> z:float -> unit = "ml_glscale" NOALLOC
+external scalev: float * float * float -> unit = "ml_glscalev" NOALLOC
+external scale: x:float -> y:float -> z:float -> unit = "ml_glscale" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glScale.xml}
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
@@ -266,14 +266,14 @@ let glMultMatrix ~mat =
 #endif
 (* }}} *)
 
-external glMultMatrixFlat: float array -> unit = "ml_glmultmatrixd_flat" NOALLOC
+external multMatrixFlat: float array -> unit = "ml_glmultmatrixd_flat" NOALLOC
 (** same than [glMultMatrix] but with an array of length 16
 
     {{:http://www.opengl.org/sdk/docs/man/xhtml/glMultMatrix.xml}
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
 
-external glMultMatrixFlat_unsafe: float array -> unit = "ml_glmultmatrixd_flat_unsafe"
+external multMatrixFlat_unsafe: float array -> unit = "ml_glmultmatrixd_flat_unsafe"
 (** same than [glMultMatrixFlat] but doesn't make any checks.
     @deprecated in core OpenGL 3. *)
 
@@ -313,14 +313,14 @@ let glLoadMatrix ~mat =
 #endif
 (* }}} *)
 
-external glLoadMatrixFlat: float array -> unit = "ml_glloadmatrixd_flat" NOALLOC
+external loadMatrixFlat: float array -> unit = "ml_glloadmatrixd_flat" NOALLOC
 (** as [glLoadMatrix] but with an array of length 16
 
     {{:http://www.opengl.org/sdk/docs/man/xhtml/glLoadMatrix.xml}
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
 
-external glLoadMatrixFlat_unsafe: float array -> unit = "ml_glloadmatrixd_flat_unsafe" NOALLOC
+external loadMatrixFlat_unsafe: float array -> unit = "ml_glloadmatrixd_flat_unsafe" NOALLOC
 (** same than [glLoadMatrixFlat] but doesn't make any checks
     @deprecated in core OpenGL 3. *)
 
@@ -328,33 +328,33 @@ external glLoadMatrixFlat_unsafe: float array -> unit = "ml_glloadmatrixd_flat_u
 
 (** {3 Miscellaneous} *)
 
-external glFlush: unit -> unit = "ml_glflush" NOALLOC
+external flush: unit -> unit = "ml_glflush" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glFlush.xml}
     manual page on opengl.org} *)
 
 #include "enums/orientation.inc.ml"
-external glFrontFace: orientation:orientation -> unit = "ml_glfrontface" NOALLOC
+external frontFace: orientation:orientation -> unit = "ml_glfrontface" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glFrontFace.xml}
     manual page on opengl.org} *)
 
-external glScissor: x:int -> y:int -> width:int -> height:int -> unit = "ml_glscissor" NOALLOC
+external scissor: x:int -> y:int -> width:int -> height:int -> unit = "ml_glscissor" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glScissor.xml}
     manual page on opengl.org} *)
 
-external glFinish: unit -> unit = "ml_glfinish" NOALLOC
+external finish: unit -> unit = "ml_glfinish" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glFinish.xml}
     manual page on opengl.org} *)
 
 
-external glClearColor: r:float -> g:float -> b:float -> a:float -> unit = "ml_glclearcolor" NOALLOC
+external clearColor: r:float -> g:float -> b:float -> a:float -> unit = "ml_glclearcolor" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glClearColor.xml}
     manual page on opengl.org} *)
 
-external glClearIndex: float -> unit = "ml_glclearindex" NOALLOC
+external clearIndex: float -> unit = "ml_glclearindex" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glClearIndex.xml}
     manual page on opengl.org} *)
 
-external glColorMask: r:bool -> g:bool -> b:bool -> a:bool -> unit = "ml_glcolormask" NOALLOC
+external colorMask: r:bool -> g:bool -> b:bool -> a:bool -> unit = "ml_glcolormask" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glColorMask.xml}
     manual page on opengl.org} *)
 
@@ -362,38 +362,38 @@ external glColorMask: r:bool -> g:bool -> b:bool -> a:bool -> unit = "ml_glcolor
 module Attrib = struct (* PACK_ENUM *)
 #include "enums/attrib_bit.inc.ml"
 end (* PACK_ENUM *)
-external glPushAttrib: attrib:Attrib.attrib_bit list -> unit = "ml_glpushattrib" NOALLOC
+external pushAttrib: attrib:Attrib.attrib_bit list -> unit = "ml_glpushattrib" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glPushAttrib.xml}
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
 
-external glPopAttrib: unit -> unit = "ml_glpopattrib" NOALLOC
+external popAttrib: unit -> unit = "ml_glpopattrib" NOALLOC
 (** @deprecated in core OpenGL 3. *)
 
 
 #include "enums/face_mode.inc.ml"
 #include "enums/polygon_mode.inc.ml"
-external glPolygonMode: face:face_mode -> mode:polygon_mode -> unit = "ml_glpolygonmode" NOALLOC
+external polygonMode: face:face_mode -> mode:polygon_mode -> unit = "ml_glpolygonmode" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glPolygonMode.xml}
     manual page on opengl.org} *)
 
-external glGetPolygonMode: unit -> polygon_mode * polygon_mode = "ml_glgetpolygonmode"
+external getPolygonMode: unit -> polygon_mode * polygon_mode = "ml_glgetpolygonmode"
 (** glGet with argument GL_POLYGON_MODE
     {{:http://www.opengl.org/sdk/docs/man/xhtml/glGet.xml}
     manual page on opengl.org} *)
 
 #include "enums/clear_mask.inc.ml"
-external glClear: mask:clear_mask list -> unit = "ml_glclear" NOALLOC
+external clear: mask:clear_mask list -> unit = "ml_glclear" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glClear.xml}
     manual page on opengl.org} *)
 
 
-external glLineWidth: width:float -> unit = "ml_gllinewidth" NOALLOC
+external lineWidth: width:float -> unit = "ml_gllinewidth" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glLineWidth.xml}
     manual page on opengl.org}.
     In OpenGL 3, this function does not support values greater than 1.0 anymore. *)
 
-external glPointSize: size:float -> unit = "ml_glpointsize" NOALLOC
+external pointSize: size:float -> unit = "ml_glpointsize" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glPointSize.xml}
     manual page on opengl.org} *)
 
@@ -419,16 +419,16 @@ val glPointParameter: point_parameter -> unit
 #else
 (* ML *)
 
-external glPointParameterf: int -> float -> unit = "ml_glpointparameterf" NOALLOC
-external glPointParameterfv: float -> float -> float -> unit = "ml_glpointparameterfv" NOALLOC
-external glPointParameteri: sprite_coord_origin -> unit = "ml_glpointparameteri" NOALLOC
+external pointParameterf: int -> float -> unit = "ml_glpointparameterf" NOALLOC
+external pointParameterfv: float -> float -> float -> unit = "ml_glpointparameterfv" NOALLOC
+external pointParameteri: sprite_coord_origin -> unit = "ml_glpointparameteri" NOALLOC
 
 let glPointParameter = function
-  | GL_POINT_SIZE_MIN param -> glPointParameterf 0 param;
-  | GL_POINT_SIZE_MAX param -> glPointParameterf 1 param;
-  | GL_POINT_FADE_THRESHOLD_SIZE param -> glPointParameterf 2 param;
-  | GL_POINT_DISTANCE_ATTENUATION(d1, d2, d3) -> glPointParameterfv d1 d2 d3;
-  | GL_POINT_SPRITE_COORD_ORIGIN param -> glPointParameteri param;
+  | GL_POINT_SIZE_MIN param -> pointParameterf 0 param;
+  | GL_POINT_SIZE_MAX param -> pointParameterf 1 param;
+  | GL_POINT_FADE_THRESHOLD_SIZE param -> pointParameterf 2 param;
+  | GL_POINT_DISTANCE_ATTENUATION(d1, d2, d3) -> pointParameterfv d1 d2 d3;
+  | GL_POINT_SPRITE_COORD_ORIGIN param -> pointParameteri param;
 ;;
 
 #endif
@@ -437,53 +437,53 @@ let glPointParameter = function
 
 #include "enums/gl_func.inc.ml"
 
-external glAlphaFunc: func:gl_func -> ref:float -> unit = "ml_glalphafunc" NOALLOC
+external alphaFunc: func:gl_func -> ref:float -> unit = "ml_glalphafunc" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glAlphaFunc.xml}
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
 
 #include "enums/hint_target.inc.ml"
 #include "enums/hint_mode.inc.ml"
-external glHint: target:hint_target -> mode:hint_mode -> unit = "ml_glhint" NOALLOC
+external hint: target:hint_target -> mode:hint_mode -> unit = "ml_glhint" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glHint.xml}
     manual page on opengl.org} *)
 
-external glCullFace: mode:face_mode -> unit = "ml_glcullface" NOALLOC
+external cullFace: mode:face_mode -> unit = "ml_glcullface" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glCullFace.xml}
     manual page on opengl.org} *)
 
 (* TODO
 test this function:
 *)
-external glGetCullFaceMode: unit -> face_mode = "ml_glgetcullfacemode" NOALLOC
+external getCullFaceMode: unit -> face_mode = "ml_glgetcullfacemode" NOALLOC
 (** associated get for {!glCullFace} *)
 
-external glLineStipple: factor:int -> pattern:int -> unit = "ml_gllinestipple" NOALLOC
+external lineStipple: factor:int -> pattern:int -> unit = "ml_gllinestipple" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glLineStipple.xml}
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
 
 type polygon_stipple_mask = (int, Bigarray.int8_unsigned_elt, Bigarray.c_layout) Bigarray.Array1.t
-external glPolygonStipple: mask:polygon_stipple_mask -> unit = "ml_glpolygonstipple" NOALLOC
+external polygonStipple: mask:polygon_stipple_mask -> unit = "ml_glpolygonstipple" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glPolygonStipple.xml}
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
 
-external glPolygonStipple_unsafe: mask:polygon_stipple_mask -> unit = "ml_glpolygonstipple_unsafe" NOALLOC
+external polygonStipple_unsafe: mask:polygon_stipple_mask -> unit = "ml_glpolygonstipple_unsafe" NOALLOC
 (** Same than [glPolygonStipple] but does not check the size of the big array.
     @deprecated in core OpenGL 3. *)
 
 module DrawBuffer = struct (* PACK_ENUM *)
 #include "enums/draw_buffer_mode.inc.ml"
 end (* PACK_ENUM *)
-external glDrawBuffer: mode:DrawBuffer.draw_buffer_mode -> unit = "ml_gldrawbuffer" NOALLOC
+external drawBuffer: mode:DrawBuffer.draw_buffer_mode -> unit = "ml_gldrawbuffer" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glDrawBuffer.xml}
     manual page on opengl.org} *)
 
 module ReadBuffer = struct (* PACK_ENUM *)
 #include "enums/read_buffer_mode.inc.ml"
 end (* PACK_ENUM *)
-external glReadBuffer: mode:ReadBuffer.read_buffer_mode -> unit = "ml_glreadbuffer" NOALLOC
+external readBuffer: mode:ReadBuffer.read_buffer_mode -> unit = "ml_glreadbuffer" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glReadBuffer.xml}
     manual page on opengl.org} *)
 
@@ -494,7 +494,7 @@ end (* PACK_ENUM *)
 module Dfactor = struct (* PACK_ENUM *)
 #include "enums/blend_dfactor.inc.ml"
 end (* PACK_ENUM *)
-external glBlendFunc: sfactor:Sfactor.blend_sfactor -> dfactor:Dfactor.blend_dfactor -> unit = "ml_glblendfunc" NOALLOC
+external blendFunc: sfactor:Sfactor.blend_sfactor -> dfactor:Dfactor.blend_dfactor -> unit = "ml_glblendfunc" NOALLOC
 (**
   {{:http://www.opengl.org/sdk/docs/man/xhtml/glBlendFunc.xml}
   manual page on opengl.org} ;
@@ -508,13 +508,13 @@ http://www.opengl.org/sdk/docs/man/xhtml/glBlendFuncSeparate.xml
 *)
 
 #include "enums/blend_mode.inc.ml"
-external glBlendEquation: mode:blend_mode -> unit = "ml_glblendequation" NOALLOC
+external blendEquation: mode:blend_mode -> unit = "ml_glblendequation" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glBlendEquation.xml}
     manual page on opengl.org} *)
 
 (*
 #include "enums/blend_mode_ext.inc.ml"
-external glBlendEquationEXT: mode:blend_mode_ext -> unit = "ml_glblendequationext"
+external blendEquationEXT: mode:blend_mode_ext -> unit = "ml_glblendequationext"
 (** {{:http://techpubs.sgi.com/library/tpl/cgi-bin/getdoc.cgi?db=man&fname=/usr/share/catman/g_man/cat3/OpenGL/glblendequationext.z}
     man page on sgi.com} *)
 *)
@@ -522,7 +522,7 @@ external glBlendEquationEXT: mode:blend_mode_ext -> unit = "ml_glblendequationex
 module Op = struct (* PACK_ENUM *)
 #include "enums/op_code.inc.ml"
 end (* PACK_ENUM *)
-external glLogicOp: opcode:Op.op_code -> unit = "ml_gllogicop" NOALLOC
+external logicOp: opcode:Op.op_code -> unit = "ml_gllogicop" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glLogicOp.xml}
     manual page on opengl.org} *)
 
@@ -531,7 +531,7 @@ external glLogicOp: opcode:Op.op_code -> unit = "ml_gllogicop" NOALLOC
 glIndexMask
 *)
 
-external glPolygonOffset: factor:float -> units:float -> unit = "ml_glpolygonoffset" NOALLOC
+external polygonOffset: factor:float -> units:float -> unit = "ml_glpolygonoffset" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glPolygonOffset.xml}
     manual page on opengl.org} *)
 
@@ -541,7 +541,7 @@ external glPolygonOffset: factor:float -> units:float -> unit = "ml_glpolygonoff
 (** {3 Lighting} *)
 
 #include "enums/shade_mode.inc.ml"
-external glShadeModel: shade_mode -> unit = "ml_glshademodel" NOALLOC
+external shadeModel: shade_mode -> unit = "ml_glshademodel" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glShadeModel.xml}
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
@@ -706,21 +706,21 @@ type get_material_3i =
   | GL_COLOR_INDEXES  (* TODO: check if these should be floats *)
 end (* _PACK_ENUM *)
 
-external glGetMaterial4f: GetMat.face_mode -> mode:GetMat.get_material_4f -> float * float * float * float = "ml_glgetmaterial4f"
-external glGetMaterial1f: GetMat.face_mode -> mode:GetMat.get_material_1f -> float = "ml_glgetmaterial1f"
-external glGetMaterial3i: GetMat.face_mode -> mode:GetMat.get_material_3i -> int * int * int = "ml_glgetmaterial3i"
+external getMaterial4f: GetMat.face_mode -> mode:GetMat.get_material_4f -> float * float * float * float = "ml_glgetmaterial4f"
+external getMaterial1f: GetMat.face_mode -> mode:GetMat.get_material_1f -> float = "ml_glgetmaterial1f"
+external getMaterial3i: GetMat.face_mode -> mode:GetMat.get_material_3i -> int * int * int = "ml_glgetmaterial3i"
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glGetMaterial.xml}
     manual page on opengl.org} *)
 
 
 #include "enums/color_material_mode.inc.ml"
-external glColorMaterial: face:face_mode -> mode:color_material_mode -> unit = "ml_glcolormaterial" NOALLOC
+external colorMaterial: face:face_mode -> mode:color_material_mode -> unit = "ml_glcolormaterial" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glColorMaterial.xml}
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
 
 
-external glSecondaryColor3: red:float -> green:float -> blue:float -> unit = "ml_glsecondarycolor3d" NOALLOC
+external secondaryColor3: red:float -> green:float -> blue:float -> unit = "ml_glsecondarycolor3d" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glSecondaryColor.xml}
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
@@ -734,14 +734,14 @@ glSecondaryColor3cv
 
 (** {3 Stenciling} *)
 
-external glStencilFunc: func:gl_func -> ref:int -> mask:int -> unit = "ml_glstencilfunc" NOALLOC
+external stencilFunc: func:gl_func -> ref:int -> mask:int -> unit = "ml_glstencilfunc" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glStencilFunc.xml}
     manual page on opengl.org} *)
 
-external glStencilFuncn: func:gl_func -> ref:int -> mask:nativeint -> unit = "ml_glstencilfuncn" NOALLOC
+external stencilFuncn: func:gl_func -> ref:int -> mask:nativeint -> unit = "ml_glstencilfuncn" NOALLOC
 (** OCaml standard ints have 1 bit missing from nativeint. *)
 
-external glStencilMask: mask:int -> unit = "ml_glstencilmask" NOALLOC
+external stencilMask: mask:int -> unit = "ml_glstencilmask" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glStencilMask.xml}
     manual page on opengl.org} *)
 
@@ -750,11 +750,11 @@ void glStencilMask( GLuint mask );
 *)
 
 #include "enums/stencil_op.inc.ml"
-external glStencilOp: sfail:stencil_op -> dpfail:stencil_op -> dppass:stencil_op -> unit = "ml_glstencilop" NOALLOC
+external stencilOp: sfail:stencil_op -> dpfail:stencil_op -> dppass:stencil_op -> unit = "ml_glstencilop" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glStencilOp.xml}
     manual page on opengl.org} *)
 
-external glClearStencil: s:int -> unit = "ml_glclearstencil" NOALLOC
+external clearStencil: s:int -> unit = "ml_glclearstencil" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glClearStencil.xml}
     manual page on opengl.org} *)
 
@@ -764,19 +764,19 @@ external glClearStencil: s:int -> unit = "ml_glclearstencil" NOALLOC
 
 (** {3 Depth Buffer} *)
 
-external glDepthRange: near:float -> far:float -> unit = "ml_gldepthrange" NOALLOC
+external depthRange: near:float -> far:float -> unit = "ml_gldepthrange" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glDepthRange.xml}
     manual page on opengl.org} *)
 
-external glClearDepth: depth:float -> unit = "ml_glcleardepth" NOALLOC
+external clearDepth: depth:float -> unit = "ml_glcleardepth" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glClearDepth.xml}
     manual page on opengl.org} *)
 
-external glDepthFunc: func:gl_func -> unit = "ml_gldepthfunc" NOALLOC
+external depthFunc: func:gl_func -> unit = "ml_gldepthfunc" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glDepthFunc.xml}
     manual page on opengl.org} *)
 
-external glDepthMask: bool -> unit = "ml_gldepthmask" NOALLOC
+external depthMask: bool -> unit = "ml_gldepthmask" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glDepthMask.xml}
     manual page on opengl.org} *)
 
@@ -785,12 +785,12 @@ external glDepthMask: bool -> unit = "ml_gldepthmask" NOALLOC
 (** {3 Accumulation Buffer} *)
 
 #include "enums/accum_op.inc.ml"
-external glAccum: op:accum_op -> value:float -> unit = "ml_glaccum" NOALLOC
+external accum: op:accum_op -> value:float -> unit = "ml_glaccum" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glAccum.xml}
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
 
-external glClearAccum: r:float -> g:float -> b:float -> a:float -> unit = "ml_glclearaccum" NOALLOC
+external clearAccum: r:float -> g:float -> b:float -> a:float -> unit = "ml_glclearaccum" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glClearAccum.xml}
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
@@ -800,16 +800,16 @@ external glClearAccum: r:float -> g:float -> b:float -> a:float -> unit = "ml_gl
 (** {3 GL Capabilities} *)
 
 #include "enums/gl_capability.inc.ml"
-external glEnable: cap:gl_capability -> unit = "ml_glenable" NOALLOC
+external enable: cap:gl_capability -> unit = "ml_glenable" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glEnable.xml}
     manual page on opengl.org} *)
-external glDisable: cap:gl_capability -> unit = "ml_gldisable" NOALLOC
+external disable: cap:gl_capability -> unit = "ml_gldisable" NOALLOC
 
 
 module Enabled = struct (* PACK_ENUM *)
 #include "enums/enabled_cap.inc.ml"
 end (* PACK_ENUM *)
-external glIsEnabled: Enabled.enabled_cap -> bool = "ml_glisenabled" NOALLOC
+external isEnabled: Enabled.enabled_cap -> bool = "ml_glisenabled" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glIsEnabled.xml}
     manual page on opengl.org} *)
 
@@ -818,46 +818,46 @@ external glIsEnabled: Enabled.enabled_cap -> bool = "ml_glisenabled" NOALLOC
 (** {3 Texture mapping} *)
 
 type texture_id = private int
-external glGenTextures: n:int -> texture_id array = "ml_glgentextures" (* DOES ALLOC *)
+external genTextures: n:int -> texture_id array = "ml_glgentextures" (* DOES ALLOC *)
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glGenTextures.xml}
     manual page on opengl.org} *)
 
-external glGenTexture: unit -> texture_id = "ml_glgentexture" NOALLOC
+external genTexture: unit -> texture_id = "ml_glgentexture" NOALLOC
 
 module BindTex = struct (* PACK_ENUM *)
 #include "enums/texture_binding.inc.ml"
 end (* PACK_ENUM *)
-external glBindTexture: target:BindTex.texture_binding -> texture:texture_id -> unit = "ml_glbindtexture" NOALLOC
+external bindTexture: target:BindTex.texture_binding -> texture:texture_id -> unit = "ml_glbindtexture" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glBindTexture.xml}
     manual page on opengl.org} *)
 
-external glUnbindTexture: target:BindTex.texture_binding -> unit = "ml_glunbindtexture" NOALLOC
+external unbindTexture: target:BindTex.texture_binding -> unit = "ml_glunbindtexture" NOALLOC
 (* deactive the previous active texture
    (is equivalent to the C call glBindTexture(target, 0)) *)
 
-external glBindTexture2D: texture:texture_id -> unit = "ml_glbindtexture2d" NOALLOC
+external bindTexture2D: texture:texture_id -> unit = "ml_glbindtexture2d" NOALLOC
 (** equivalent to [glBindTexture] with parameter [GL_TEXTURE_2D] *)
 
-external glUnbindTexture2D: unit -> unit = "ml_glunbindtexture2d" NOALLOC
+external unbindTexture2D: unit -> unit = "ml_glunbindtexture2d" NOALLOC
 (* deactive the previous active texture
    (is equivalent to the C call glBindTexture(GL_TEXTURE_2D, 0)) *)
 
-external glDeleteTextures: textures:texture_id array -> unit = "ml_gldeletetextures" NOALLOC
+external deleteTextures: textures:texture_id array -> unit = "ml_gldeletetextures" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glDeleteTextures.xml}
     manual page on opengl.org} *)
 
-external glDeleteTexture: texture:texture_id -> unit = "ml_gldeletetexture" NOALLOC
+external deleteTexture: texture:texture_id -> unit = "ml_gldeletetexture" NOALLOC
 
-external glIsTexture: texture:texture_id -> bool = "ml_glistexture" NOALLOC
+external isTexture: texture:texture_id -> bool = "ml_glistexture" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glIsTexture.xml}
     manual page on opengl.org} *)
 
-external glPrioritizeTextures: textures:texture_id array -> priority:float array -> unit = "ml_glprioritizetextures" NOALLOC
-external glPrioritizeTexture: texture:texture_id -> priority:float -> unit = "ml_glprioritizetexture" NOALLOC
+external prioritizeTextures: textures:texture_id array -> priority:float array -> unit = "ml_glprioritizetextures" NOALLOC
+external prioritizeTexture: texture:texture_id -> priority:float -> unit = "ml_glprioritizetexture" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glPrioritizeTextures.xml}
     manual page on opengl.org} *)
 
-external glPrioritizeTexturesp: prioritized_textures:(texture_id * float) array -> unit = "ml_glprioritizetexturesp" NOALLOC
+external prioritizeTexturesp: prioritized_textures:(texture_id * float) array -> unit = "ml_glprioritizetexturesp" NOALLOC
 
 (* TODO
 type target = GL_TEXTURE_ENV | GL_TEXTURE_FILTER_CONTROL | GL_POINT_SPRITE
@@ -927,26 +927,26 @@ type texenv_scale = SCALE_1 | SCALE_2 | SCALE_4
   | GL_RGB_SCALE of texenv_scale
   | GL_ALPHA_SCALE of texenv_scale
 *)
-external glTexEnv: TexEnv.texenv_target -> TexEnv.texenv_pname -> TexEnv.texenv_param -> unit = "ml_gltexenv" NOALLOC
+external texEnv: TexEnv.texenv_target -> TexEnv.texenv_pname -> TexEnv.texenv_param -> unit = "ml_gltexenv" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glTexEnv.xml}
     manual page on opengl.org} *)
 
 #include "enums/tex_coord.inc.ml"
 #include "enums/tex_coord_gen_func.inc.ml"
 #include "enums/tex_gen_param.inc.ml"
-external glTexGen: tex_coord -> tex_coord_gen_func -> tex_gen_param -> unit = "ml_gltexgen" NOALLOC
+external texGen: tex_coord -> tex_coord_gen_func -> tex_gen_param -> unit = "ml_gltexgen" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glTexGen.xml}
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
 
 #include "enums/tex_coord_fun_params.inc.ml"
 
-external glTexGenv: tex_coord -> tex_coord_fun_params -> float * float * float * float -> unit = "ml_gltexgenv"
+external texGenv: tex_coord -> tex_coord_fun_params -> float * float * float * float -> unit = "ml_gltexgenv"
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glTexGen.xml}
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
 
-external glTexGenva: tex_coord -> tex_coord_fun_params -> float array -> unit = "ml_gltexgenva"
+external texGenva: tex_coord -> tex_coord_fun_params -> float array -> unit = "ml_gltexgenva"
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glTexGen.xml}
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
@@ -994,7 +994,7 @@ let assert_size ~width ~height =
 (* TODO
  add all new type for recent GL versions
 *)
-external glTexImage2D:
+external texImage2D:
     target:TexTarget.target_2d -> level:int ->
     internal_format:InternalFormat.internal_format ->
     width:int -> height:int ->
@@ -1007,7 +1007,7 @@ external glTexImage2D:
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glTexImage2D.xml}
     manual page on opengl.org} *)
 
-external glTexImage2D_str:
+external texImage2D_str:
     target:TexTarget.target_2d -> level:int ->
     internal_format:InternalFormat.internal_format ->
     width:int -> height:int ->
@@ -1018,7 +1018,7 @@ external glTexImage2D_str:
       "ml_glteximage2d_str_native"
       NOALLOC
 
-external glTexImage1D: target:TexTarget.target_1d -> level:int ->
+external texImage1D: target:TexTarget.target_1d -> level:int ->
     internal_format:InternalFormat.internal_format ->
     width:int ->
     format_:pixel_data_format ->
@@ -1030,7 +1030,7 @@ external glTexImage1D: target:TexTarget.target_1d -> level:int ->
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glTexImage1D.xml}
     manual page on opengl.org} *)
 
-external glTexImage3D: target:TexTarget.target_3d -> level:int ->
+external texImage3D: target:TexTarget.target_3d -> level:int ->
     internal_format:InternalFormat.internal_format ->
     width:int -> height:int -> depth:int ->
     format_:pixel_data_format ->
@@ -1042,17 +1042,17 @@ external glTexImage3D: target:TexTarget.target_3d -> level:int ->
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glTexImage3D.xml}
     manual page on opengl.org} *)
 
-external glTexCoord1: s:float -> unit = "ml_gltexcoord1" NOALLOC
-external glTexCoord2: s:float -> t:float -> unit = "ml_gltexcoord2" NOALLOC
-external glTexCoord3: s:float -> t:float -> r:float -> unit = "ml_gltexcoord3" NOALLOC
-external glTexCoord4: s:float -> t:float -> r:float -> q:float -> unit = "ml_gltexcoord4" NOALLOC
+external texCoord1: s:float -> unit = "ml_gltexcoord1" NOALLOC
+external texCoord2: s:float -> t:float -> unit = "ml_gltexcoord2" NOALLOC
+external texCoord3: s:float -> t:float -> r:float -> unit = "ml_gltexcoord3" NOALLOC
+external texCoord4: s:float -> t:float -> r:float -> q:float -> unit = "ml_gltexcoord4" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glTexCoord.xml}
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
 
-external glTexCoord2v: v:float * float -> unit = "ml_gltexcoord2v" NOALLOC
-external glTexCoord3v: v:float * float * float -> unit = "ml_gltexcoord3v" NOALLOC
-external glTexCoord4v: v:float * float * float * float -> unit = "ml_gltexcoord4v" NOALLOC
+external texCoord2v: v:float * float -> unit = "ml_gltexcoord2v" NOALLOC
+external texCoord3v: v:float * float * float -> unit = "ml_gltexcoord3v" NOALLOC
+external texCoord4v: v:float * float * float * float -> unit = "ml_gltexcoord4v" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glTexCoord.xml}
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
@@ -1106,7 +1106,7 @@ type tex_param =
 end (* _PACK_ENUM *)
 
 #ifdef MLI
-val glTexParameter:
+val texParameter:
     target:TexParam.tex_param_target ->
     param:TexParam.tex_param -> unit
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glTexParameter.xml}
@@ -1114,32 +1114,32 @@ val glTexParameter:
 #else
 (* ML *)
 
-external glTexParameterMinFilter: TexParam.tex_param_target -> Min.min_filter -> unit = "ml_gltexparameter_minfilter"
-external glTexParameterMagFilter: TexParam.tex_param_target -> Mag.mag_filter -> unit = "ml_gltexparameter_magfilter"
-external glTexParameter1i: TexParam.tex_param_target -> int -> int -> unit = "ml_gltexparameter1i"
-external glTexParameter1f: TexParam.tex_param_target -> int -> float -> unit = "ml_gltexparameter1f"
-external glTexParameterWrap: TexParam.tex_param_target -> int -> wrap_param -> unit = "ml_gltexparameter_wrap"
-external glTexParameter4f: TexParam.tex_param_target -> float * float * float * float -> unit = "ml_gltexparameter4f"
-external glTexParameter_gen_mpmp: TexParam.tex_param_target -> bool -> unit = "ml_gltexparameter_gen_mpmp"
+external texParameterMinFilter: TexParam.tex_param_target -> Min.min_filter -> unit = "ml_gltexparameter_minfilter"
+external texParameterMagFilter: TexParam.tex_param_target -> Mag.mag_filter -> unit = "ml_gltexparameter_magfilter"
+external texParameter1i: TexParam.tex_param_target -> int -> int -> unit = "ml_gltexparameter1i"
+external texParameter1f: TexParam.tex_param_target -> int -> float -> unit = "ml_gltexparameter1f"
+external texParameterWrap: TexParam.tex_param_target -> int -> wrap_param -> unit = "ml_gltexparameter_wrap"
+external texParameter4f: TexParam.tex_param_target -> float * float * float * float -> unit = "ml_gltexparameter4f"
+external texParameter_gen_mpmp: TexParam.tex_param_target -> bool -> unit = "ml_gltexparameter_gen_mpmp"
 
-let glTexParameter ~target ~param =
+let texParameter ~target ~param =
   match param with
-  | TexParam.GL_TEXTURE_MIN_FILTER min_filter -> glTexParameterMinFilter target min_filter
-  | TexParam.GL_TEXTURE_MAG_FILTER mag_filter -> glTexParameterMagFilter target mag_filter
-  | TexParam.GL_TEXTURE_MIN_LOD  d -> glTexParameter1f target 0 d
-  | TexParam.GL_TEXTURE_MAX_LOD  d -> glTexParameter1f target 1 d
-  | TexParam.GL_TEXTURE_PRIORITY d -> glTexParameter1f target 2 d
-  | TexParam.GL_TEXTURE_BASE_LEVEL d -> glTexParameter1i target 0 d
-  | TexParam.GL_TEXTURE_MAX_LEVEL  d -> glTexParameter1i target 1 d
-  | TexParam.GL_TEXTURE_WRAP_S wrap_param -> glTexParameterWrap target 0 wrap_param
-  | TexParam.GL_TEXTURE_WRAP_T wrap_param -> glTexParameterWrap target 1 wrap_param
-  | TexParam.GL_TEXTURE_WRAP_R wrap_param -> glTexParameterWrap target 2 wrap_param
-  | TexParam.GL_TEXTURE_BORDER_COLOR color -> glTexParameter4f target color
+  | TexParam.GL_TEXTURE_MIN_FILTER min_filter -> texParameterMinFilter target min_filter
+  | TexParam.GL_TEXTURE_MAG_FILTER mag_filter -> texParameterMagFilter target mag_filter
+  | TexParam.GL_TEXTURE_MIN_LOD  d -> texParameter1f target 0 d
+  | TexParam.GL_TEXTURE_MAX_LOD  d -> texParameter1f target 1 d
+  | TexParam.GL_TEXTURE_PRIORITY d -> texParameter1f target 2 d
+  | TexParam.GL_TEXTURE_BASE_LEVEL d -> texParameter1i target 0 d
+  | TexParam.GL_TEXTURE_MAX_LEVEL  d -> texParameter1i target 1 d
+  | TexParam.GL_TEXTURE_WRAP_S wrap_param -> texParameterWrap target 0 wrap_param
+  | TexParam.GL_TEXTURE_WRAP_T wrap_param -> texParameterWrap target 1 wrap_param
+  | TexParam.GL_TEXTURE_WRAP_R wrap_param -> texParameterWrap target 2 wrap_param
+  | TexParam.GL_TEXTURE_BORDER_COLOR color -> texParameter4f target color
 
   | TexParam.GL_TEXTURE_COMPARE_MODE tex_comp_mode -> assert(false) (** TODO switch GL_VERSION_1_4 *)
   | TexParam.GL_TEXTURE_COMPARE_FUNC gl_func -> assert(false)       (** TODO switch GL_VERSION_1_4 *)
   | TexParam.GL_DEPTH_TEXTURE_MODE dtexmode -> assert(false)        (** TODO switch GL_VERSION_1_4 *)
-  | TexParam.GL_GENERATE_MIPMAP gm -> glTexParameter_gen_mpmp target gm
+  | TexParam.GL_GENERATE_MIPMAP gm -> texParameter_gen_mpmp target gm
 ;;
 
 #endif
@@ -1154,7 +1154,7 @@ module CopyTex = struct (* PACK_ENUM *)
 #include "enums/copy_tex_target.inc.ml"
 end (* PACK_ENUM *)
 
-external glCopyTexImage2D:
+external copyTexImage2D:
     target:CopyTex.copy_tex_target ->
     level:int ->
     internal_format:InternalFormat.internal_format ->
@@ -1170,7 +1170,7 @@ external glCopyTexImage2D:
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
 
-external glSampleCoverage: value:float -> invert:bool -> unit = "ml_glsamplecoverage" NOALLOC
+external sampleCoverage: value:float -> invert:bool -> unit = "ml_glsamplecoverage" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glSampleCoverage.xml}
     manual page on opengl.org} *)
 
@@ -1178,21 +1178,21 @@ external glSampleCoverage: value:float -> invert:bool -> unit = "ml_glsamplecove
 (** {3 Raster functions} *)
 
 #include "enums/pixel_packing_b.inc.ml"
-external glPixelStoreb: pixel_packing:pixel_packing_b -> param:bool -> unit = "ml_glpixelstoreb" NOALLOC
+external pixelStoreb: pixel_packing:pixel_packing_b -> param:bool -> unit = "ml_glpixelstoreb" NOALLOC
 
 #include "enums/pixel_packing_i.inc.ml"
-external glPixelStorei: pixel_packing:pixel_packing_i -> param:int -> unit = "ml_glpixelstorei" NOALLOC
+external pixelStorei: pixel_packing:pixel_packing_i -> param:int -> unit = "ml_glpixelstorei" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glPixelStore.xml}
     manual page on opengl.org} *)
 
-external glPixelZoom: xfactor:float -> yfactor:float -> unit = "ml_glpixelzoom" NOALLOC
+external pixelZoom: xfactor:float -> yfactor:float -> unit = "ml_glpixelzoom" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glPixelZoom.xml}
     manual page on opengl.org} *)
 
 
 
 #include "enums/pixel_map.inc.ml"
-external glPixelMapfv: map:pixel_map -> v:float array -> unit = "ml_glpixelmapfv"
+external pixelMapfv: map:pixel_map -> v:float array -> unit = "ml_glpixelmapfv"
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glPixelMap.xml}
     manual page on opengl.org} *)
 
@@ -1209,7 +1209,7 @@ void glGetPixelMapuiv( GLenum map, GLuint *values );
 void glGetPixelMapusv( GLenum map, GLushort *values );
 *)
 
-external glBitmap: width:int -> height:int -> xorig:float -> yorig:float ->
+external bitmap: width:int -> height:int -> xorig:float -> yorig:float ->
     xmove:float -> ymove:float -> bitmap:('a, 'b, 'c) Bigarray.Array1.t -> unit
     = "ml_glbitmap_bytecode"
       "ml_glbitmap_native"
@@ -1218,7 +1218,7 @@ external glBitmap: width:int -> height:int -> xorig:float -> yorig:float ->
 
 
 #include "enums/pixel_type.inc.ml"
-external glCopyPixels: x:int -> y:int -> width:int -> height:int -> pixel_type:pixel_type -> unit = "ml_glcopypixels" NOALLOC
+external copyPixels: x:int -> y:int -> width:int -> height:int -> pixel_type:pixel_type -> unit = "ml_glcopypixels" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glCopyPixels.xml}
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
@@ -1238,10 +1238,10 @@ http://www.opengl.org/documentation/specs/man_pages/hardcopy/GL/html/gl/pixeltra
 (** if the [ARB_imaging] extension is supported, these symbolic names are accepted *)
 #include "enums/pixel_transfer_f_ARB.inc.ml"
 
-external glPixelTransferi: pname:pixel_transfer_i -> param:int -> unit = "ml_glpixeltransferi"
-external glPixelTransferf: pname:pixel_transfer_f -> param:float -> unit = "ml_glpixeltransferf"
-external glPixelTransferb: pname:pixel_transfer_b -> param:bool -> unit = "ml_glpixeltransferb"
-external glPixelTransferfARB: pname:pixel_transfer_f_ARB -> param:float -> unit = "ml_glpixeltransferfARB"
+external pixelTransferi: pname:pixel_transfer_i -> param:int -> unit = "ml_glpixeltransferi"
+external pixelTransferf: pname:pixel_transfer_f -> param:float -> unit = "ml_glpixeltransferf"
+external pixelTransferb: pname:pixel_transfer_b -> param:bool -> unit = "ml_glpixeltransferb"
+external pixelTransferfARB: pname:pixel_transfer_f_ARB -> param:float -> unit = "ml_glpixeltransferfARB"
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glPixelTransfer.xml}
     manual page on opengl.org} *)
 
@@ -1251,7 +1251,7 @@ module Framebuffer = struct (* PACK_ENUM *)
 #include "enums/pixel_buffer_format.inc.ml"
 #include "enums/pixel_buffer_type.inc.ml"
 end (* PACK_ENUM *)
-external glReadPixelsBA_unsafe: x:int -> y:int -> width:int -> height:int ->
+external readPixelsBA_unsafe: x:int -> y:int -> width:int -> height:int ->
     Framebuffer.pixel_buffer_format -> Framebuffer.pixel_buffer_type -> image_data -> unit
     = "ml_glreadpixels_ba_unsafe_bytecode"
       "ml_glreadpixels_ba_unsafe_native"
@@ -1259,14 +1259,14 @@ external glReadPixelsBA_unsafe: x:int -> y:int -> width:int -> height:int ->
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glReadPixels.xml}
     manual page on opengl.org} *)
 
-external glReadPixelsBA: x:int -> y:int -> width:int -> height:int ->
+external readPixelsBA: x:int -> y:int -> width:int -> height:int ->
     Framebuffer.pixel_buffer_format -> Framebuffer.pixel_buffer_type -> image_data -> unit
     = "ml_glreadpixels_ba_bytecode"
       "ml_glreadpixels_ba_native"
       NOALLOC
 (** same than [glReadPixelsBA_unsafe] but checks the size of the big-array *)
 
-external glDrawPixels_str:
+external drawPixels_str:
   width:int -> height:int -> format_:pixel_data_format ->
   type_:pixel_data_type -> pixels:string -> unit
   = "ml_gldrawpixels_str"
@@ -1280,11 +1280,11 @@ external glDrawPixels_str:
 module Plane = struct (* PACK_ENUM *)
 #include "enums/clip_plane.inc.ml"
 end (* PACK_ENUM *)
-external glClipPlane: plane:Plane.clip_plane -> equation:float array -> unit = "ml_glclipplane"
+external clipPlane: plane:Plane.clip_plane -> equation:float array -> unit = "ml_glclipplane"
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glClipPlane.xml}
     manual page on opengl.org} *)
 
-external glClipPlane_unsafe: plane:Plane.clip_plane -> equation:float array -> unit = "ml_glclipplane_unsafe"
+external clipPlane_unsafe: plane:Plane.clip_plane -> equation:float array -> unit = "ml_glclipplane_unsafe"
 (** same than [glClipPlane] but doesn't check that [equation] contains 4 items. *)
 
 type clip_plane_i = GL_CLIP_PLANE of int
@@ -1297,16 +1297,16 @@ val glClipPlanei_unsafe: plane:clip_plane_i -> equation:float array -> unit
 #else
 (* ML *)
 
-external glClipPlanei: plane:int -> equation:float array -> unit = "ml_glclipplane_i"
-external glClipPlanei_unsafe: plane:int -> equation:float array -> unit = "ml_glclipplane_i_unsafe"
+external clipPlanei: plane:int -> equation:float array -> unit = "ml_glclipplane_i"
+external clipPlanei_unsafe: plane:int -> equation:float array -> unit = "ml_glclipplane_i_unsafe"
 
 let glClipPlanei ~plane ~equation =
   match plane with
-  | GL_CLIP_PLANE i -> glClipPlanei ~plane:i ~equation ;;
+  | GL_CLIP_PLANE i -> clipPlanei ~plane:i ~equation ;;
 
 let glClipPlanei_unsafe ~plane ~equation =
   match plane with
-  | GL_CLIP_PLANE i -> glClipPlanei_unsafe ~plane:i ~equation ;;
+  | GL_CLIP_PLANE i -> clipPlanei_unsafe ~plane:i ~equation ;;
 
 #endif
 
@@ -1319,7 +1319,7 @@ http://www.opengl.org/sdk/docs/man/xhtml/glGetClipPlane.xml
 module Map1 = struct (* PACK_ENUM *)
 #include "enums/map1_target.inc.ml"
 end (* PACK_ENUM *)
-external glMap1: target:Map1.map1_target -> u1:float -> u2:float -> stride:int -> order:int -> points:float array -> unit
+external map1: target:Map1.map1_target -> u1:float -> u2:float -> stride:int -> order:int -> points:float array -> unit
          = "ml_glmap1d_bytecode"
            "ml_glmap1d_native"
            NOALLOC
@@ -1331,7 +1331,7 @@ external glMap1: target:Map1.map1_target -> u1:float -> u2:float -> stride:int -
 module Map2 = struct (* PACK_ENUM *)
 #include "enums/map2_target.inc.ml"
 end (* PACK_ENUM *)
-external glMap2: target:Map2.map2_target ->
+external map2: target:Map2.map2_target ->
                  u1:float -> u2:float -> ustride:int -> uorder:int ->
                  v1:float -> v2:float -> vstride:int -> vorder:int ->
                  points:float array array array -> unit
@@ -1342,8 +1342,8 @@ external glMap2: target:Map2.map2_target ->
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
 
-external glEvalCoord1: u:float -> unit = "ml_glevalcoord1d" NOALLOC
-external glEvalCoord2: u:float -> v:float -> unit = "ml_glevalcoord2d" NOALLOC
+external evalCoord1: u:float -> unit = "ml_glevalcoord1d" NOALLOC
+external evalCoord2: u:float -> v:float -> unit = "ml_glevalcoord2d" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glEvalCoord.xml}
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
@@ -1356,21 +1356,21 @@ module EvalMesh2 = struct
 type eval_mesh_2 = GL_POINT | GL_LINE | GL_FILL
 end
 
-external glEvalMesh1: mode:EvalMesh1.eval_mesh_1 -> i1:int -> i2:int -> unit = "ml_glevalmesh1" NOALLOC
-external glEvalMesh2: mode:EvalMesh2.eval_mesh_2 -> i1:int -> i2:int -> j1:int -> j2:int -> unit = "ml_glevalmesh2" NOALLOC
+external evalMesh1: mode:EvalMesh1.eval_mesh_1 -> i1:int -> i2:int -> unit = "ml_glevalmesh1" NOALLOC
+external evalMesh2: mode:EvalMesh2.eval_mesh_2 -> i1:int -> i2:int -> j1:int -> j2:int -> unit = "ml_glevalmesh2" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glEvalMesh.xml}
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
 
-external glEvalPoint1: i:int -> unit = "ml_glevalpoint1" NOALLOC
-external glEvalPoint2: i:int -> j:int -> unit = "ml_glevalpoint2" NOALLOC
+external evalPoint1: i:int -> unit = "ml_glevalpoint1" NOALLOC
+external evalPoint2: i:int -> j:int -> unit = "ml_glevalpoint2" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glEvalPoint.xml}
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
 
 
-external glMapGrid1: un:int -> u1:float -> u2:float -> unit = "ml_glmapgrid1d" NOALLOC
-external glMapGrid2: un:int -> u1:float -> u2:float -> vn:int -> v1:float -> v2:float -> unit
+external mapGrid1: un:int -> u1:float -> u2:float -> unit = "ml_glmapgrid1d" NOALLOC
+external mapGrid2: un:int -> u1:float -> u2:float -> vn:int -> v1:float -> v2:float -> unit
     = "ml_glmapgrid2d_bytecode"
       "ml_glmapgrid2d_native"
       NOALLOC
@@ -1383,46 +1383,46 @@ external glMapGrid2: un:int -> u1:float -> u2:float -> vn:int -> v1:float -> v2:
 (** {3 Display Lists} *)
 
 #include "enums/list_mode.inc.ml"
-external glNewList: gl_list:int -> mode:list_mode -> unit = "ml_glnewlist" NOALLOC
+external newList: gl_list:int -> mode:list_mode -> unit = "ml_glnewlist" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glNewList.xml}
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
 
-external glEndList: unit -> unit = "ml_glendlist" NOALLOC
+external endList: unit -> unit = "ml_glendlist" NOALLOC
 (** @deprecated in core OpenGL 3. *)
 
-external glGenList: unit -> int = "ml_glgenlist" NOALLOC
-external glGenLists: range:int -> int = "ml_glgenlists" NOALLOC
+external genList: unit -> int = "ml_glgenlist" NOALLOC
+external genLists: range:int -> int = "ml_glgenlists" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glGenLists.xml}
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
 
-external glCallList: gl_list:int -> unit = "ml_glcalllist" NOALLOC
+external callList: gl_list:int -> unit = "ml_glcalllist" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glCallList.xml}
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
 
-external glCallLists: gl_lists:int array -> unit = "ml_glcalllists" NOALLOC
+external callLists: gl_lists:int array -> unit = "ml_glcalllists" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glCallLists.xml}
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
 
-external glDeleteLists: gl_list:int -> range:int -> unit = "ml_gldeletelists" NOALLOC
+external deleteLists: gl_list:int -> range:int -> unit = "ml_gldeletelists" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glDeleteLists.xml}
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
 
-external glListBase: base:int -> unit = "ml_gllistbase" NOALLOC
+external listBase: base:int -> unit = "ml_gllistbase" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glListBase.xml}
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
 
-external glIsList: gl_list:int -> bool = "ml_glislist" NOALLOC
+external isList: gl_list:int -> bool = "ml_glislist" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glIsList.xml}
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
 
-external glGetListMode: unit -> list_mode = "ml_glgetlistmode" NOALLOC
+external getListMode: unit -> list_mode = "ml_glgetlistmode" NOALLOC
 (** @deprecated in core OpenGL 3. *)
  
 
@@ -1430,27 +1430,27 @@ external glGetListMode: unit -> list_mode = "ml_glgetlistmode" NOALLOC
 (** {3 Picking} *)
 
 #include "enums/render_mode.inc.ml"
-external glRenderMode: mode:render_mode -> int = "ml_glrendermode" NOALLOC
+external renderMode: mode:render_mode -> int = "ml_glrendermode" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glRenderMode.xml}
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
 
-external glInitNames: unit -> unit = "ml_glinitnames" NOALLOC
+external initNames: unit -> unit = "ml_glinitnames" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glInitNames.xml}
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
 
-external glLoadName: name:int -> unit = "ml_glloadname" NOALLOC
+external loadName: name:int -> unit = "ml_glloadname" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glLoadName.xml}
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
 
-external glPushName: name:int -> unit = "ml_glpushname" NOALLOC
+external pushName: name:int -> unit = "ml_glpushname" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glPushName.xml}
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
 
-external glPopName: unit -> unit = "ml_glpopname" NOALLOC
+external popName: unit -> unit = "ml_glpopname" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glPopName.xml}
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
@@ -1463,12 +1463,12 @@ external new_select_buffer: buffer_size:int -> select_buffer = "ml_alloc_select_
 external free_select_buffer: select_buffer:select_buffer -> unit = "ml_free_select_buffer" NOALLOC
 external select_buffer_get: select_buffer:select_buffer -> index:int -> int = "ml_select_buffer_get" NOALLOC
 
-external glSelectBuffer: buffer_size:int -> select_buffer:select_buffer -> unit = "ml_glselectbuffer" NOALLOC
+external selectBuffer: buffer_size:int -> select_buffer:select_buffer -> unit = "ml_glselectbuffer" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glSelectBuffer.xml}
     manual page on opengl.org}
     @deprecated in core OpenGL 3. *)
 
-external glSelectBufferBA: 
+external selectBufferBA: 
     (*
     ('a, 'b, Bigarray.c_layout) Bigarray.Array1.t
     *)
@@ -1514,22 +1514,22 @@ val glFog: pname:fog_param -> unit
 #else
 (* ML *)
 
-external glFog2: pname:int -> param:float -> unit = "ml_glfog2" NOALLOC
-external glFog1: i:int -> unit = "ml_glfog1" NOALLOC
-external glFog4: float -> float -> float -> float -> unit = "ml_glfog4" NOALLOC
+external fog2: pname:int -> param:float -> unit = "ml_glfog2" NOALLOC
+external fog1: i:int -> unit = "ml_glfog1" NOALLOC
+external fog4: float -> float -> float -> float -> unit = "ml_glfog4" NOALLOC
 
 let glFog ~pname =
   match pname with
-  | GL_FOG_DENSITY density -> glFog2 1 density
-  | GL_FOG_START start     -> glFog2 2 start
-  | GL_FOG_END _end        -> glFog2 3 _end
-  | GL_FOG_INDEX index     -> glFog2 4 index
-  | GL_FOG_COORD_SRC   GL_FOG_COORD      -> glFog1 1
-  | GL_FOG_COORD_SRC   GL_FRAGMENT_DEPTH -> glFog1 2
-  | GL_FOG_MODE   GL_LINEAR -> glFog1 3
-  | GL_FOG_MODE   GL_EXP    -> glFog1 4
-  | GL_FOG_MODE   GL_EXP2   -> glFog1 5
-  | GL_FOG_COLOR(r, g, b, a) -> glFog4 r g b a
+  | GL_FOG_DENSITY density -> fog2 1 density
+  | GL_FOG_START start     -> fog2 2 start
+  | GL_FOG_END _end        -> fog2 3 _end
+  | GL_FOG_INDEX index     -> fog2 4 index
+  | GL_FOG_COORD_SRC   GL_FOG_COORD      -> fog1 1
+  | GL_FOG_COORD_SRC   GL_FRAGMENT_DEPTH -> fog1 2
+  | GL_FOG_MODE   GL_LINEAR -> fog1 3
+  | GL_FOG_MODE   GL_EXP    -> fog1 4
+  | GL_FOG_MODE   GL_EXP2   -> fog1 5
+  | GL_FOG_COLOR(r, g, b, a) -> fog4 r g b a
 ;;
 
 #endif
@@ -1545,61 +1545,61 @@ type shader_object
 type shader_program
 
 #include "enums/shader_type.inc.ml"
-external glCreateShader: shader_type:shader_type -> shader_object = "ml_glcreateshader"
+external createShader: shader_type:shader_type -> shader_object = "ml_glcreateshader"
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glCreateShader.xml}
     manual page on opengl.org} *)
 
-external glDeleteShader: shader:shader_object -> unit = "ml_gldeleteshader"
+external deleteShader: shader:shader_object -> unit = "ml_gldeleteshader"
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glDeleteShader.xml}
     manual page on opengl.org} *)
 
-external glIsShader: shader:shader_object -> bool = "ml_glisshader"
+external isShader: shader:shader_object -> bool = "ml_glisshader"
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glIsShader.xml}
     manual page on opengl.org} *)
 
-external glShaderSource: shader:shader_object  -> string -> unit = "ml_glshadersource"
+external shaderSource: shader:shader_object  -> string -> unit = "ml_glshadersource"
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glShaderSource.xml}
     manual page on opengl.org} *)
 
-external glCompileShader: shader:shader_object -> unit = "ml_glcompileshader"
+external compileShader: shader:shader_object -> unit = "ml_glcompileshader"
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glCompileShader.xml}
     manual page on opengl.org} *)
 
-external glCreateProgram: unit -> shader_program = "ml_glcreateprogram"
+external createProgram: unit -> shader_program = "ml_glcreateprogram"
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glCreateProgram.xml}
     manual page on opengl.org} *)
 
-external glDeleteProgram: program:shader_program -> unit = "ml_gldeleteprogram"
+external deleteProgram: program:shader_program -> unit = "ml_gldeleteprogram"
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glDeleteProgram.xml}
     manual page on opengl.org} *)
 
-external glAttachShader: program:shader_program -> shader:shader_object  -> unit = "ml_glattachshader"
+external attachShader: program:shader_program -> shader:shader_object  -> unit = "ml_glattachshader"
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glAttachShader.xml}
     manual page on opengl.org} *)
 
-external glDetachShader: program:shader_program -> shader:shader_object -> unit = "ml_gldetachshader"
+external detachShader: program:shader_program -> shader:shader_object -> unit = "ml_gldetachshader"
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glDetachShader.xml}
     manual page on opengl.org} *)
 
-external glLinkProgram: program:shader_program -> unit = "ml_gllinkprogram"
+external linkProgram: program:shader_program -> unit = "ml_gllinkprogram"
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glLinkProgram.xml}
     manual page on opengl.org} *)
 
-external glUseProgram: program:shader_program -> unit = "ml_gluseprogram"
+external useProgram: program:shader_program -> unit = "ml_gluseprogram"
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glUseProgram.xml}
     manual page on opengl.org} *)
 
-external glUnuseProgram: unit -> unit = "ml_glunuseprogram"
+external unuseProgram: unit -> unit = "ml_glunuseprogram"
 (** equivalent to the C call glUseProgram(0) that desactivates the program *)
 
-external glGetShaderCompileStatus: shader:shader_object -> bool = "ml_glgetshadercompilestatus"
+external getShaderCompileStatus: shader:shader_object -> bool = "ml_glgetshadercompilestatus"
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glGetShader.xml}
     manual page on opengl.org} *)
 
-external glGetShaderCompileStatus_exn: shader:shader_object -> unit = "ml_glgetshadercompilestatus_exn"
+external getShaderCompileStatus_exn: shader:shader_object -> unit = "ml_glgetshadercompilestatus_exn"
 (** same than [glGetShaderCompileStatus] but raises an exception instead of returning false *)
 
-external glGetUniformLocation: program:shader_program -> name:string -> int = "ml_glgetuniformlocation"
+external getUniformLocation: program:shader_program -> name:string -> int = "ml_glgetuniformlocation"
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glGetUniformLocation.xml}
     manual page on opengl.org} *)
 
@@ -1617,100 +1617,100 @@ type get_program_int =
   | GL_ACTIVE_UNIFORMS
   | GL_ACTIVE_UNIFORM_MAX_LENGTH
 
-external glGetProgrami: program:shader_program -> pname:get_program_int -> int = "ml_glgetprogram_int"
-external glGetProgramb: program:shader_program -> pname:get_program_bool -> bool = "ml_glgetprogram_bool"
+external getProgrami: program:shader_program -> pname:get_program_int -> int = "ml_glgetprogram_int"
+external getProgramb: program:shader_program -> pname:get_program_bool -> bool = "ml_glgetprogram_bool"
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glGetProgram.xml}
     manual page on opengl.org} *)
 
 
-external glUniform1f: location:int -> v0:float -> unit = "ml_gluniform1f" NOALLOC
-external glUniform2f: location:int -> v0:float -> v1:float -> unit = "ml_gluniform2f" NOALLOC
-external glUniform3f: location:int -> v0:float -> v1:float -> v2:float -> unit = "ml_gluniform3f" NOALLOC
-external glUniform4f: location:int -> v0:float -> v1:float -> v2:float -> v3:float -> unit = "ml_gluniform4f" NOALLOC
-external glUniform1i: location:int -> v0:int -> unit = "ml_gluniform1i" NOALLOC
-external glUniform2i: location:int -> v0:int -> v1:int -> unit = "ml_gluniform2i" NOALLOC
-external glUniform3i: location:int -> v0:int -> v1:int -> v2:int -> unit = "ml_gluniform3i" NOALLOC
-external glUniform4i: location:int -> v0:int -> v1:int -> v2:int -> v3:int -> unit = "ml_gluniform4i" NOALLOC
+external uniform1f: location:int -> v0:float -> unit = "ml_gluniform1f" NOALLOC
+external uniform2f: location:int -> v0:float -> v1:float -> unit = "ml_gluniform2f" NOALLOC
+external uniform3f: location:int -> v0:float -> v1:float -> v2:float -> unit = "ml_gluniform3f" NOALLOC
+external uniform4f: location:int -> v0:float -> v1:float -> v2:float -> v3:float -> unit = "ml_gluniform4f" NOALLOC
+external uniform1i: location:int -> v0:int -> unit = "ml_gluniform1i" NOALLOC
+external uniform2i: location:int -> v0:int -> v1:int -> unit = "ml_gluniform2i" NOALLOC
+external uniform3i: location:int -> v0:int -> v1:int -> v2:int -> unit = "ml_gluniform3i" NOALLOC
+external uniform4i: location:int -> v0:int -> v1:int -> v2:int -> v3:int -> unit = "ml_gluniform4i" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glUniform.xml}
     manual page on opengl.org} *)
 
-external glUniform1fv: location:int -> value:float array -> unit = "ml_gluniform1fv"
-external glUniform2fv: location:int -> count:int -> value:float array -> unit = "ml_gluniform2fv"
-external glUniform3fv: location:int -> count:int -> value:float array -> unit = "ml_gluniform3fv"
-external glUniform4fv: location:int -> count:int -> value:float array -> unit = "ml_gluniform4fv"
-external glUniform1iv: location:int -> value:int array -> unit = "ml_gluniform1iv"
-external glUniform2iv: location:int -> count:int -> value:int array -> unit = "ml_gluniform2iv"
-external glUniform3iv: location:int -> count:int -> value:int array -> unit = "ml_gluniform3iv"
-external glUniform4iv: location:int -> count:int -> value:int array -> unit = "ml_gluniform4iv"
+external uniform1fv: location:int -> value:float array -> unit = "ml_gluniform1fv"
+external uniform2fv: location:int -> count:int -> value:float array -> unit = "ml_gluniform2fv"
+external uniform3fv: location:int -> count:int -> value:float array -> unit = "ml_gluniform3fv"
+external uniform4fv: location:int -> count:int -> value:float array -> unit = "ml_gluniform4fv"
+external uniform1iv: location:int -> value:int array -> unit = "ml_gluniform1iv"
+external uniform2iv: location:int -> count:int -> value:int array -> unit = "ml_gluniform2iv"
+external uniform3iv: location:int -> count:int -> value:int array -> unit = "ml_gluniform3iv"
+external uniform4iv: location:int -> count:int -> value:int array -> unit = "ml_gluniform4iv"
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glUniform.xml}
     manual page on opengl.org} *)
 
 
-external glUniformMatrix2f: location:int -> transpose:bool -> value:float array -> unit = "ml_gluniformmatrix2f"
-external glUniformMatrix3f: location:int -> transpose:bool -> value:float array -> unit = "ml_gluniformmatrix3f"
-external glUniformMatrix4f: location:int -> transpose:bool -> value:float array -> unit = "ml_gluniformmatrix4f"
+external uniformMatrix2f: location:int -> transpose:bool -> value:float array -> unit = "ml_gluniformmatrix2f"
+external uniformMatrix3f: location:int -> transpose:bool -> value:float array -> unit = "ml_gluniformmatrix3f"
+external uniformMatrix4f: location:int -> transpose:bool -> value:float array -> unit = "ml_gluniformmatrix4f"
 
-external glUniformMatrix2x3f: location:int -> transpose:bool -> value:float array -> unit = "ml_gluniformmatrix2x3f"
-external glUniformMatrix3x2f: location:int -> transpose:bool -> value:float array -> unit = "ml_gluniformmatrix3x2f"
+external uniformMatrix2x3f: location:int -> transpose:bool -> value:float array -> unit = "ml_gluniformmatrix2x3f"
+external uniformMatrix3x2f: location:int -> transpose:bool -> value:float array -> unit = "ml_gluniformmatrix3x2f"
 
-external glUniformMatrix2x4f: location:int -> transpose:bool -> value:float array -> unit = "ml_gluniformmatrix2x4f"
-external glUniformMatrix4x2f: location:int -> transpose:bool -> value:float array -> unit = "ml_gluniformmatrix4x2f"
+external uniformMatrix2x4f: location:int -> transpose:bool -> value:float array -> unit = "ml_gluniformmatrix2x4f"
+external uniformMatrix4x2f: location:int -> transpose:bool -> value:float array -> unit = "ml_gluniformmatrix4x2f"
 
-external glUniformMatrix3x4f: location:int -> transpose:bool -> value:float array -> unit = "ml_gluniformmatrix3x4f"
-external glUniformMatrix4x3f: location:int -> transpose:bool -> value:float array -> unit = "ml_gluniformmatrix4x3f"
-
-
-external glUniformMatrix2fv: location:int -> count:int -> transpose:bool -> value:float array -> unit = "ml_gluniformmatrix2fv"
-external glUniformMatrix3fv: location:int -> count:int -> transpose:bool -> value:float array -> unit = "ml_gluniformmatrix3fv"
-external glUniformMatrix4fv: location:int -> count:int -> transpose:bool -> value:float array -> unit = "ml_gluniformmatrix4fv"
-
-external glUniformMatrix2x3fv: location:int -> count:int -> transpose:bool -> value:float array -> unit = "ml_gluniformmatrix2x3fv"
-external glUniformMatrix3x2fv: location:int -> count:int -> transpose:bool -> value:float array -> unit = "ml_gluniformmatrix3x2fv"
-
-external glUniformMatrix2x4fv: location:int -> count:int -> transpose:bool -> value:float array -> unit = "ml_gluniformmatrix2x4fv"
-external glUniformMatrix4x2fv: location:int -> count:int -> transpose:bool -> value:float array -> unit = "ml_gluniformmatrix4x2fv"
-
-external glUniformMatrix3x4fv: location:int -> count:int -> transpose:bool -> value:float array -> unit = "ml_gluniformmatrix3x4fv"
-external glUniformMatrix4x3fv: location:int -> count:int -> transpose:bool -> value:float array -> unit = "ml_gluniformmatrix4x3fv"
+external uniformMatrix3x4f: location:int -> transpose:bool -> value:float array -> unit = "ml_gluniformmatrix3x4f"
+external uniformMatrix4x3f: location:int -> transpose:bool -> value:float array -> unit = "ml_gluniformmatrix4x3f"
 
 
+external uniformMatrix2fv: location:int -> count:int -> transpose:bool -> value:float array -> unit = "ml_gluniformmatrix2fv"
+external uniformMatrix3fv: location:int -> count:int -> transpose:bool -> value:float array -> unit = "ml_gluniformmatrix3fv"
+external uniformMatrix4fv: location:int -> count:int -> transpose:bool -> value:float array -> unit = "ml_gluniformmatrix4fv"
 
-external glGetAttribLocation: program:shader_program -> name:string -> int = "ml_glgetattriblocation" NOALLOC
+external uniformMatrix2x3fv: location:int -> count:int -> transpose:bool -> value:float array -> unit = "ml_gluniformmatrix2x3fv"
+external uniformMatrix3x2fv: location:int -> count:int -> transpose:bool -> value:float array -> unit = "ml_gluniformmatrix3x2fv"
+
+external uniformMatrix2x4fv: location:int -> count:int -> transpose:bool -> value:float array -> unit = "ml_gluniformmatrix2x4fv"
+external uniformMatrix4x2fv: location:int -> count:int -> transpose:bool -> value:float array -> unit = "ml_gluniformmatrix4x2fv"
+
+external uniformMatrix3x4fv: location:int -> count:int -> transpose:bool -> value:float array -> unit = "ml_gluniformmatrix3x4fv"
+external uniformMatrix4x3fv: location:int -> count:int -> transpose:bool -> value:float array -> unit = "ml_gluniformmatrix4x3fv"
+
+
+
+external getAttribLocation: program:shader_program -> name:string -> int = "ml_glgetattriblocation" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glGetAttribLocation.xml}
     manual page on opengl.org} *)
 
-external glBindAttribLocation: program:shader_program -> index:int -> name:string -> unit = "ml_glbindattriblocation" NOALLOC
+external bindAttribLocation: program:shader_program -> index:int -> name:string -> unit = "ml_glbindattriblocation" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glBindAttribLocation.xml}
     manual page on opengl.org} *)
 
 
-external glVertexAttrib1s: index:int -> v:int -> unit = "ml_glvertexattrib1s" NOALLOC
-external glVertexAttrib1d: index:int -> v:float -> unit = "ml_glvertexattrib1d" NOALLOC
+external vertexAttrib1s: index:int -> v:int -> unit = "ml_glvertexattrib1s" NOALLOC
+external vertexAttrib1d: index:int -> v:float -> unit = "ml_glvertexattrib1d" NOALLOC
 
-external glVertexAttrib2s: index:int -> v0:int -> v1:int -> unit = "ml_glvertexattrib2s" NOALLOC
-external glVertexAttrib2d: index:int -> v0:float -> v1:float -> unit = "ml_glvertexattrib2d" NOALLOC
+external vertexAttrib2s: index:int -> v0:int -> v1:int -> unit = "ml_glvertexattrib2s" NOALLOC
+external vertexAttrib2d: index:int -> v0:float -> v1:float -> unit = "ml_glvertexattrib2d" NOALLOC
 
-external glVertexAttrib3s: index:int -> v0:int -> v1:int -> v2:int -> unit = "ml_glvertexattrib3s" NOALLOC
-external glVertexAttrib3d: index:int -> v0:float -> v1:float -> v2:float -> unit = "ml_glvertexattrib3d" NOALLOC
+external vertexAttrib3s: index:int -> v0:int -> v1:int -> v2:int -> unit = "ml_glvertexattrib3s" NOALLOC
+external vertexAttrib3d: index:int -> v0:float -> v1:float -> v2:float -> unit = "ml_glvertexattrib3d" NOALLOC
 
-external glVertexAttrib4s: index:int -> v0:int -> v1:int -> v2:int -> v3:int -> unit = "ml_glvertexattrib4s" NOALLOC
-external glVertexAttrib4d: index:int -> v0:float -> v1:float -> v2:float -> v3:float -> unit = "ml_glvertexattrib4d" NOALLOC
+external vertexAttrib4s: index:int -> v0:int -> v1:int -> v2:int -> v3:int -> unit = "ml_glvertexattrib4s" NOALLOC
+external vertexAttrib4d: index:int -> v0:float -> v1:float -> v2:float -> v3:float -> unit = "ml_glvertexattrib4d" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glVertexAttrib.xml}
     manual page on opengl.org} *)
 
-external glGetShaderInfoLog: shader:shader_object -> string = "ml_glgetshaderinfolog" (* DOES ALLOC *)
+external getShaderInfoLog: shader:shader_object -> string = "ml_glgetshaderinfolog" (* DOES ALLOC *)
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glGetShaderInfoLog.xml}
     manual page on opengl.org} *)
 
-external glGetProgramInfoLog: program:shader_program -> string = "ml_glgetprograminfolog" (* DOES ALLOC *)
+external getProgramInfoLog: program:shader_program -> string = "ml_glgetprograminfolog" (* DOES ALLOC *)
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glGetProgramInfoLog.xml}
     manual page on opengl.org} *)
 
-external glEnableVertexAttribArray: index:int -> unit = "ml_glenablevertexattribarray" NOALLOC
+external enableVertexAttribArray: index:int -> unit = "ml_glenablevertexattribarray" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glEnableVertexAttribArray.xml}
     manual page on opengl.org} *)
 
-external glDisableVertexAttribArray: index:int -> unit = "ml_gldisablevertexattribarray" NOALLOC
+external disableVertexAttribArray: index:int -> unit = "ml_gldisablevertexattribarray" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glDisableVertexAttribArray.xml}
     manual page on opengl.org} *)
 
@@ -1747,26 +1747,26 @@ end (* _PACK_ENUM *)
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glGet.xml}
     manual page on opengl.org} *)
 
-external glGetBoolean1: Get.get_boolean_1 -> bool = "ml_glgetboolean1" NOALLOC
-external glGetBoolean4: Get.get_boolean_4 -> bool * bool * bool * bool = "ml_glgetboolean4" (* DOES ALLOC *)
-external glGetInteger4: Get.get_integer_4 -> int * int * int * int = "ml_glgetinteger4" (* DOES ALLOC *)
-external glGetInteger1: Get.get_integer_1 -> int = "ml_glgetinteger1" NOALLOC
-external glGetInteger2: Get.get_integer_2 -> int * int = "ml_glgetinteger2" (* DOES ALLOC *)
-external glGetFloat4: Get.get_float_4 -> float * float * float * float = "ml_glgetfloat4" (* DOES ALLOC *)
-external glGetFloat3: Get.get_float_3 -> float * float * float = "ml_glgetfloat3" (* DOES ALLOC *)
-external glGetFloat2: Get.get_float_2 -> float * float = "ml_glgetfloat2" (* DOES ALLOC *)
-external glGetFloat1: Get.get_float_1 -> float = "ml_glgetfloat1" (* DOES ALLOC *)
-external glGetMatrix: Get.get_matrix -> float array array = "ml_glgetmatrix" (* DOES ALLOC *)
-external glGetMatrixFlat: Get.get_matrix -> float array = "ml_glgetmatrix_flat" (* DOES ALLOC *)
-external glGetTextureBinding: Get.get_texture_binding -> texture_id = "ml_glgettexturebinding" NOALLOC
+external getBoolean1: Get.get_boolean_1 -> bool = "ml_glgetboolean1" NOALLOC
+external getBoolean4: Get.get_boolean_4 -> bool * bool * bool * bool = "ml_glgetboolean4" (* DOES ALLOC *)
+external getInteger4: Get.get_integer_4 -> int * int * int * int = "ml_glgetinteger4" (* DOES ALLOC *)
+external getInteger1: Get.get_integer_1 -> int = "ml_glgetinteger1" NOALLOC
+external getInteger2: Get.get_integer_2 -> int * int = "ml_glgetinteger2" (* DOES ALLOC *)
+external getFloat4: Get.get_float_4 -> float * float * float * float = "ml_glgetfloat4" (* DOES ALLOC *)
+external getFloat3: Get.get_float_3 -> float * float * float = "ml_glgetfloat3" (* DOES ALLOC *)
+external getFloat2: Get.get_float_2 -> float * float = "ml_glgetfloat2" (* DOES ALLOC *)
+external getFloat1: Get.get_float_1 -> float = "ml_glgetfloat1" (* DOES ALLOC *)
+external getMatrix: Get.get_matrix -> float array array = "ml_glgetmatrix" (* DOES ALLOC *)
+external getMatrixFlat: Get.get_matrix -> float array = "ml_glgetmatrix_flat" (* DOES ALLOC *)
+external getTextureBinding: Get.get_texture_binding -> texture_id = "ml_glgettexturebinding" NOALLOC
 
 #include "enums/get_string.inc.ml"
-external glGetString: name:get_string -> string = "ml_glgetstring" (* DOES ALLOC *)
+external getString: name:get_string -> string = "ml_glgetstring" (* DOES ALLOC *)
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glGetString.xml}
     manual page on opengl.org} *)
 
 #include "enums/gl_error.inc.ml"
-external glGetError: unit -> gl_error = "ml_glgeterror" NOALLOC
+external getError: unit -> gl_error = "ml_glgeterror" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glGetError.xml}
     manual page on opengl.org} *)
 
@@ -1794,7 +1794,7 @@ external _glGetLight1: light_i:int -> int -> float = "ml_glgetlight1" (* DOES AL
 external _glGetLight3: light_i:int -> float * float * float = "ml_glgetlight3" (* DOES ALLOC *)
 external _glGetLight4: light_i:int -> int -> float * float * float * float = "ml_glgetlight4" (* DOES ALLOC *)
 
-external glGetLightModelColorControl: unit -> color_control = "ml_glgetlightmodelcolorcontrol"
+external getLightModelColorControl: unit -> color_control = "ml_glgetlightmodelcolorcontrol"
 
 
 let glGetLight ~light ~pname =
@@ -1815,7 +1815,7 @@ let glGetLight ~light ~pname =
   | Get.GL_SPECULAR -> let p1, p2, p3, p4 = _glGetLight4 light_i 2 in P4(p1, p2, p3, p4)
   | Get.GL_POSITION -> let p1, p2, p3, p4 = _glGetLight4 light_i 3 in P4(p1, p2, p3, p4)
 
-  | Get.GL_LIGHT_MODEL_COLOR_CONTROL -> PCC(glGetLightModelColorControl())
+  | Get.GL_LIGHT_MODEL_COLOR_CONTROL -> PCC(getLightModelColorControl())
 ;;
 
 #endif
@@ -1832,19 +1832,19 @@ let glGetLight ~light ~pname =
 *)
 
 #include "enums/texture_i.inc.ml"
-external glActiveTexture: texture:texture_i -> unit = "ml_glactivetexture" NOALLOC
+external activeTexture: texture:texture_i -> unit = "ml_glactivetexture" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glActiveTexture.xml}
     manual page on opengl.org} *)
 
-external glActiveTexturei: texture:int -> unit = "ml_glactivetexture_i" NOALLOC
+external activeTexturei: texture:int -> unit = "ml_glactivetexture_i" NOALLOC
 (** [glActiveTexturei i] is equivalent to [glActiveTexture GL_TEXTUREi] *)
 
 
-external glMultiTexCoord2: texture:texture_i -> s:float -> t:float -> unit = "ml_glmultitexcoord2d" NOALLOC
+external multiTexCoord2: texture:texture_i -> s:float -> t:float -> unit = "ml_glmultitexcoord2d" NOALLOC
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glMultiTexCoord.xml}
     manual page on opengl.org} *)
 
-external glMultiTexCoord2i: texture:int -> s:float -> t:float -> unit = "ml_glmultitexcoord2f_i"
+external multiTexCoord2i: texture:int -> s:float -> t:float -> unit = "ml_glmultitexcoord2f_i"
 
 (* }}} *)
 (* TODO glMultiTexCoord(3|4) *)

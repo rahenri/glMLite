@@ -28,6 +28,7 @@
 OCAMLOPT=ocamlopt
 OCAMLC=ocamlc
 OCAMLDOC=ocamldoc
+OCAMLFIND=ocamlfind
 #OCAMLOPT=ocamlopt.opt -g
 #OCAMLC=ocamlc.opt
 #OCAMLDOC=ocamldoc.opt

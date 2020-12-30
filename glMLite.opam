@@ -9,7 +9,7 @@ doc: "none"
 
 tags: [ ]
 synopsis: "none"
-description: """none"""
+description: """None"""
 depends: [
   "ocaml"
 ]
@@ -17,5 +17,5 @@ build: [
   [make "-C" "src"]
 ]
 install: [
-  [make "-C" "src" "install"]
+  [make "-C" "src" "install_findlib"]
 ]

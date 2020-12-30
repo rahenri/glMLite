@@ -1,0 +1,22 @@
+opam-version: "0.3.53"
+name: "glMLite"
+maintainer: "none"
+authors: [ ]
+license: "none"
+homepage: "none"
+bug-reports: "none"
+dev-repo: "none"
+doc: "none"
+
+tags: [ ]
+synopsis: "none"
+description: """none"""
+depends: [
+  "ocaml"
+]
+build: [
+  [make "-C" "src"]
+]
+install: [
+  [make "-C" "src" "install"]
+]

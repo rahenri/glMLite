@@ -443,6 +443,32 @@ jpeg_loader.cma:  jpeg_loader.cmo  dlljpeg_loader.so
 	$(OCAMLMKLIB) -o jpeg_loader $< $(GL_LIBS) -L"$(OCAML_PATH)" -ljpeg
 
 # }}}
+#
+# {{{ png loader 
+.PHONY: png png_byte png_opt
+png_byte: png_loader.cma
+png_opt: png_loader.cmxa
+png: png_byte png_opt
+
+png_loader.cmi png_loader.cmo: png_loader.ml  GL.cmi
+	$(OCAMLC) -c $<
+
+png_loader.cmx png_loader.o: png_loader.ml
+	$(OCAMLOPT) -c $<
+
+loader-libpng.o: loader-libpng.c  loader-texure.h
+	$(OCAMLC)  -c  $<
+
+dllpng_loader.so libpng_loader.a: loader-libpng.o
+	$(OCAMLMKLIB) -o png_loader $< $(GL_LIBS) -L"$(OCAML_PATH)" -lpng
+
+png_loader.cmxa png_loader.a:  png_loader.cmx  dllpng_loader.so
+	$(OCAMLMKLIB) -o png_loader $< $(GL_LIBS) -L"$(OCAML_PATH)" -lpng
+
+png_loader.cma:  png_loader.cmo  dllpng_loader.so
+	$(OCAMLMKLIB) -o png_loader $< $(GL_LIBS) -L"$(OCAML_PATH)" -lpng
+
+# }}}
 
 # {{{ Vertex Array 
 
@@ -515,6 +541,15 @@ DIST_FILES_JPEG=\
     jpeg_loader.o     \
     libjpeg_loader.a  \
 #EOL
+DIST_FILES_PNG=\
+    png_loader.cma   \
+    png_loader.cmi   \
+    png_loader.cmxa  \
+    png_loader.cmx   \
+    png_loader.a     \
+    png_loader.o     \
+    libpng_loader.a  \
+#EOL
 DIST_FILES_FUN=\
     FunGL.cma         \
     FunGL.cmi         \
@@ -541,12 +576,15 @@ SO_DIST_FILES_CORE=\
 SO_DIST_FILES_JPEG=\
     dlljpeg_loader.so \
 #EOL
+SO_DIST_FILES_PNG=\
+    dllpng_loader.so \
+#EOL
 SO_DIST_FILES_FUN=\
     dllFunGL.so   \
 #EOL
 
-.PHONY: install  install_core  install_jpeg  install_fun
-install: install_core  install_jpeg  install_fun  install_vbo
+.PHONY: install  install_core  install_jpeg install_png  install_fun
+install: install_core  install_jpeg install_png  install_fun  install_vbo
 
 install_core: $(DIST_FILES_CORE)  $(SO_DIST_FILES_CORE) META
 	if [ ! -d $(PREFIX) ]; then install -d $(PREFIX) ; fi
@@ -561,6 +599,12 @@ install_jpeg: $(DIST_FILES_JPEG)  $(SO_DIST_FILES_JPEG)
 
 	for file in $(SO_DIST_FILES_JPEG); do if [ -f $$file ];then install -m 0755 $$file $(SO_PREFIX)/; fi; done
 	for file in $(DIST_FILES_JPEG);    do if [ -f $$file ];then install -m 0644 $$file $(PREFIX)/; fi; done
+
+install_png: $(DIST_FILES_PNG)  $(SO_DIST_FILES_PNG)
+	if [ ! -d $(PREFIX) ]; then install -d $(PREFIX) ; fi
+
+	for file in $(SO_DIST_FILES_PNG); do if [ -f $$file ];then install -m 0755 $$file $(SO_PREFIX)/; fi; done
+	for file in $(DIST_FILES_PNG);    do if [ -f $$file ];then install -m 0644 $$file $(PREFIX)/; fi; done
 
 
 install_fun: $(DIST_FILES_FUN)  $(SO_DIST_FILES_FUN)

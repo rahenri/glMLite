@@ -378,7 +378,7 @@ external polygonMode: face:face_mode -> mode:polygon_mode -> unit = "ml_glpolygo
     manual page on opengl.org} *)
 
 external getPolygonMode: unit -> polygon_mode * polygon_mode = "ml_glgetpolygonmode"
-(** glGet with argument GL_POLYGON_MODE
+(** glGet with argument POLYGON_MODE
     {{:http://www.opengl.org/sdk/docs/man/xhtml/glGet.xml}
     manual page on opengl.org} *)
 
@@ -399,14 +399,14 @@ external pointSize: size:float -> unit = "ml_glpointsize" NOALLOC
 
 (* {{{ glPointParameter *)
 
-type sprite_coord_origin = GL_LOWER_LEFT | GL_UPPER_LEFT
+type sprite_coord_origin = LOWER_LEFT | UPPER_LEFT
 
 type point_parameter =
-  | GL_POINT_SIZE_MIN of float
-  | GL_POINT_SIZE_MAX of float
-  | GL_POINT_FADE_THRESHOLD_SIZE of float
-  | GL_POINT_DISTANCE_ATTENUATION of float * float * float
-  | GL_POINT_SPRITE_COORD_ORIGIN of sprite_coord_origin
+  | POINT_SIZE_MIN of float
+  | POINT_SIZE_MAX of float
+  | POINT_FADE_THRESHOLD_SIZE of float
+  | POINT_DISTANCE_ATTENUATION of float * float * float
+  | POINT_SPRITE_COORD_ORIGIN of sprite_coord_origin
 
 #ifdef MLI
 
@@ -424,11 +424,11 @@ external pointParameterfv: float -> float -> float -> unit = "ml_glpointparamete
 external pointParameteri: sprite_coord_origin -> unit = "ml_glpointparameteri" NOALLOC
 
 let glPointParameter = function
-  | GL_POINT_SIZE_MIN param -> pointParameterf 0 param;
-  | GL_POINT_SIZE_MAX param -> pointParameterf 1 param;
-  | GL_POINT_FADE_THRESHOLD_SIZE param -> pointParameterf 2 param;
-  | GL_POINT_DISTANCE_ATTENUATION(d1, d2, d3) -> pointParameterfv d1 d2 d3;
-  | GL_POINT_SPRITE_COORD_ORIGIN param -> pointParameteri param;
+  | POINT_SIZE_MIN param -> pointParameterf 0 param;
+  | POINT_SIZE_MAX param -> pointParameterf 1 param;
+  | POINT_FADE_THRESHOLD_SIZE param -> pointParameterf 2 param;
+  | POINT_DISTANCE_ATTENUATION(d1, d2, d3) -> pointParameterfv d1 d2 d3;
+  | POINT_SPRITE_COORD_ORIGIN param -> pointParameteri param;
 ;;
 
 #endif
@@ -554,19 +554,19 @@ glGet with argument GL_SHADE_MODEL
 
 module Light = struct (* _PACK_ENUM *)
 type light_pname =
-  | GL_SPOT_EXPONENT of float
-  | GL_SPOT_CUTOFF of float
-  | GL_CONSTANT_ATTENUATION of float
-  | GL_LINEAR_ATTENUATION of float
-  | GL_QUADRATIC_ATTENUATION of float
-  | GL_SPOT_DIRECTION of (float * float * float)
-  | GL_AMBIENT of (float * float * float * float)
-  | GL_DIFFUSE of (float * float * float * float)
-  | GL_SPECULAR of (float * float * float * float)
-  | GL_POSITION of (float * float * float * float)
+  | SPOT_EXPONENT of float
+  | SPOT_CUTOFF of float
+  | CONSTANT_ATTENUATION of float
+  | LINEAR_ATTENUATION of float
+  | QUADRATIC_ATTENUATION of float
+  | SPOT_DIRECTION of (float * float * float)
+  | AMBIENT of (float * float * float * float)
+  | DIFFUSE of (float * float * float * float)
+  | SPECULAR of (float * float * float * float)
+  | POSITION of (float * float * float * float)
 end (* _PACK_ENUM *)
 
-type gl_light = GL_LIGHT of int
+type gl_light = LIGHT of int
 
 #ifdef MLI
 
@@ -587,21 +587,19 @@ external _glLight4: light_i:int -> pname:int -> float -> float -> float -> float
 
 let glLight ~light ~pname =
   let light_i =
-    match light with GL_LIGHT i -> i
+    match light with LIGHT i -> i
   in
   match pname with
-  | Light.GL_SPOT_EXPONENT param         -> _glLight1 light_i 0 param
-  | Light.GL_SPOT_CUTOFF param           -> _glLight1 light_i 1 param
-  | Light.GL_CONSTANT_ATTENUATION param  -> _glLight1 light_i 2 param
-  | Light.GL_LINEAR_ATTENUATION param    -> _glLight1 light_i 3 param
-  | Light.GL_QUADRATIC_ATTENUATION param -> _glLight1 light_i 4 param
-
-  | Light.GL_SPOT_DIRECTION(p1, p2, p3) -> _glLight3 light_i p1 p2 p3
-
-  | Light.GL_AMBIENT (p1, p2, p3, p4) -> _glLight4 light_i 0 p1 p2 p3 p4
-  | Light.GL_DIFFUSE (p1, p2, p3, p4) -> _glLight4 light_i 1 p1 p2 p3 p4
-  | Light.GL_SPECULAR(p1, p2, p3, p4) -> _glLight4 light_i 2 p1 p2 p3 p4
-  | Light.GL_POSITION(p1, p2, p3, p4) -> _glLight4 light_i 3 p1 p2 p3 p4
+  | Light.SPOT_EXPONENT param         -> _glLight1 light_i 0 param
+  | Light.SPOT_CUTOFF param           -> _glLight1 light_i 1 param
+  | Light.CONSTANT_ATTENUATION param  -> _glLight1 light_i 2 param
+  | Light.LINEAR_ATTENUATION param    -> _glLight1 light_i 3 param
+  | Light.QUADRATIC_ATTENUATION param -> _glLight1 light_i 4 param
+  | Light.SPOT_DIRECTION(p1, p2, p3) -> _glLight3 light_i p1 p2 p3
+  | Light.AMBIENT (p1, p2, p3, p4) -> _glLight4 light_i 0 p1 p2 p3 p4
+  | Light.DIFFUSE (p1, p2, p3, p4) -> _glLight4 light_i 1 p1 p2 p3 p4
+  | Light.SPECULAR(p1, p2, p3, p4) -> _glLight4 light_i 2 p1 p2 p3 p4
+  | Light.POSITION(p1, p2, p3, p4) -> _glLight4 light_i 3 p1 p2 p3 p4
 ;;
 
 #endif
@@ -609,14 +607,14 @@ let glLight ~light ~pname =
 (* {{{ glLightModel *)
 
 type color_control =
-  | GL_SEPARATE_SPECULAR_COLOR
-  | GL_SINGLE_COLOR
+  | SEPARATE_SPECULAR_COLOR
+  | SINGLE_COLOR
 
 type light_model =
-  | GL_LIGHT_MODEL_AMBIENT of (float * float * float * float)
-  | GL_LIGHT_MODEL_COLOR_CONTROL of color_control
-  | GL_LIGHT_MODEL_LOCAL_VIEWER of bool
-  | GL_LIGHT_MODEL_TWO_SIDE of bool
+  | LIGHT_MODEL_AMBIENT of (float * float * float * float)
+  | LIGHT_MODEL_COLOR_CONTROL of color_control
+  | LIGHT_MODEL_LOCAL_VIEWER of bool
+  | LIGHT_MODEL_TWO_SIDE of bool
 
 #ifdef MLI
 
@@ -636,11 +634,11 @@ external _glLightModel4: float -> float -> float -> float -> unit = "ml_glLightM
 
 let glLightModel ~light_model =
   match light_model with
-  | GL_LIGHT_MODEL_COLOR_CONTROL  GL_SEPARATE_SPECULAR_COLOR -> _glLightModel1 0;
-  | GL_LIGHT_MODEL_COLOR_CONTROL  GL_SINGLE_COLOR            -> _glLightModel1 1;
-  | GL_LIGHT_MODEL_LOCAL_VIEWER p -> _glLightModel2 0 p;
-  | GL_LIGHT_MODEL_TWO_SIDE p     -> _glLightModel2 1 p;
-  | GL_LIGHT_MODEL_AMBIENT(r, g, b, a) -> _glLightModel4 r g b a;
+  | LIGHT_MODEL_COLOR_CONTROL  SEPARATE_SPECULAR_COLOR -> _glLightModel1 0;
+  | LIGHT_MODEL_COLOR_CONTROL  SINGLE_COLOR            -> _glLightModel1 1;
+  | LIGHT_MODEL_LOCAL_VIEWER p -> _glLightModel2 0 p;
+  | LIGHT_MODEL_TWO_SIDE p     -> _glLightModel2 1 p;
+  | LIGHT_MODEL_AMBIENT(r, g, b, a) -> _glLightModel4 r g b a;
 ;;
 
 #endif
@@ -651,13 +649,13 @@ let glLightModel ~light_model =
 
 module Material = struct (* _PACK_ENUM *)
 type material_mode =
-  | GL_AMBIENT of (float * float * float * float)
-  | GL_DIFFUSE of (float * float * float * float)
-  | GL_SPECULAR of (float * float * float * float)
-  | GL_EMISSION of (float * float * float * float)
-  | GL_SHININESS of float
-  | GL_AMBIENT_AND_DIFFUSE of (float * float * float * float)
-  | GL_COLOR_INDEXES of (int * int * int)  (* TODO: check if these should be floats *)
+  | AMBIENT of (float * float * float * float)
+  | DIFFUSE of (float * float * float * float)
+  | SPECULAR of (float * float * float * float)
+  | EMISSION of (float * float * float * float)
+  | SHININESS of float
+  | AMBIENT_AND_DIFFUSE of (float * float * float * float)
+  | COLOR_INDEXES of (int * int * int)  (* TODO: check if these should be floats *)
 end (* _PACK_ENUM *)
 
 #ifdef MLI
@@ -679,13 +677,13 @@ external _glMaterial4: face_mode -> int -> float -> float -> float -> float -> u
 
 let glMaterial ~face ~mode =
   match mode with
-  | Material.GL_SHININESS p -> _glMaterial1 face p
-  | Material.GL_AMBIENT  (p1, p2, p3, p4) -> _glMaterial4 face 0 p1 p2 p3 p4
-  | Material.GL_DIFFUSE  (p1, p2, p3, p4) -> _glMaterial4 face 1 p1 p2 p3 p4
-  | Material.GL_SPECULAR (p1, p2, p3, p4) -> _glMaterial4 face 2 p1 p2 p3 p4
-  | Material.GL_EMISSION (p1, p2, p3, p4) -> _glMaterial4 face 3 p1 p2 p3 p4
-  | Material.GL_AMBIENT_AND_DIFFUSE (p1, p2, p3, p4) -> _glMaterial4 face 4 p1 p2 p3 p4
-  | Material.GL_COLOR_INDEXES (p1, p2, p3) -> _glMaterial3 face p1 p2 p3
+  | Material.SHININESS p -> _glMaterial1 face p
+  | Material.AMBIENT  (p1, p2, p3, p4) -> _glMaterial4 face 0 p1 p2 p3 p4
+  | Material.DIFFUSE  (p1, p2, p3, p4) -> _glMaterial4 face 1 p1 p2 p3 p4
+  | Material.SPECULAR (p1, p2, p3, p4) -> _glMaterial4 face 2 p1 p2 p3 p4
+  | Material.EMISSION (p1, p2, p3, p4) -> _glMaterial4 face 3 p1 p2 p3 p4
+  | Material.AMBIENT_AND_DIFFUSE (p1, p2, p3, p4) -> _glMaterial4 face 4 p1 p2 p3 p4
+  | Material.COLOR_INDEXES (p1, p2, p3) -> _glMaterial3 face p1 p2 p3
 ;;
 
 #endif
@@ -694,16 +692,16 @@ let glMaterial ~face ~mode =
 
 
 module GetMat = struct (* _PACK_ENUM *)
-type face_mode = GL_FRONT | GL_BACK
+type face_mode = FRONT | BACK
 type get_material_4f =
-  | GL_AMBIENT
-  | GL_DIFFUSE
-  | GL_SPECULAR
-  | GL_EMISSION
+  | AMBIENT
+  | DIFFUSE
+  | SPECULAR
+  | EMISSION
 type get_material_1f =
-  | GL_SHININESS
+  | SHININESS
 type get_material_3i =
-  | GL_COLOR_INDEXES  (* TODO: check if these should be floats *)
+  | COLOR_INDEXES  (* TODO: check if these should be floats *)
 end (* _PACK_ENUM *)
 
 external getMaterial4f: GetMat.face_mode -> mode:GetMat.get_material_4f -> float * float * float * float = "ml_glgetmaterial4f"
@@ -955,8 +953,8 @@ external texGenva: tex_coord -> tex_coord_fun_params -> float array -> unit = "m
 module TexTarget = struct (* _PACK_ENUM *)
 #include "enums/target_2d.inc.ml"
 
-type target_1d = GL_TEXTURE_1D | GL_PROXY_TEXTURE_1D
-type target_3d = GL_TEXTURE_3D | GL_PROXY_TEXTURE_3D
+type target_1d = TEXTURE_1D | PROXY_TEXTURE_1D
+type target_3d = TEXTURE_3D | PROXY_TEXTURE_3D
 end (* _PACK_ENUM *)
 
 module InternalFormat = struct (* PACK_ENUM *)
@@ -1075,33 +1073,33 @@ module TexParam = struct (* _PACK_ENUM *)
 
 type texture_compare_mode =
   (*
-  | GL_VERSION_1_4::GL_COMPARE_R_TO_TEXTURE
+  | VERSION_1_4::GL_COMPARE_R_TO_TEXTURE
   *)
-  | GL_NONE
+  | NONE
 
 type depth_texture_mode =
-  | GL_LUMINANCE
-  | GL_INTENSITY
-  | GL_ALPHA
+  | LUMINANCE
+  | INTENSITY
+  | ALPHA
 
 (** parameter for [glTexParameter] *)
 type tex_param =
-  | GL_TEXTURE_MIN_FILTER of Min.min_filter
-  | GL_TEXTURE_MAG_FILTER of Mag.mag_filter
-  | GL_TEXTURE_MIN_LOD of float
-  | GL_TEXTURE_MAX_LOD of float
-  | GL_TEXTURE_BASE_LEVEL of int
-  | GL_TEXTURE_MAX_LEVEL of int
-  | GL_TEXTURE_WRAP_S of wrap_param
-  | GL_TEXTURE_WRAP_T of wrap_param
-  | GL_TEXTURE_WRAP_R of wrap_param
-  | GL_TEXTURE_BORDER_COLOR of (float * float * float * float)
-  | GL_TEXTURE_PRIORITY of float
+  | TEXTURE_MIN_FILTER of Min.min_filter
+  | TEXTURE_MAG_FILTER of Mag.mag_filter
+  | TEXTURE_MIN_LOD of float
+  | TEXTURE_MAX_LOD of float
+  | TEXTURE_BASE_LEVEL of int
+  | TEXTURE_MAX_LEVEL of int
+  | TEXTURE_WRAP_S of wrap_param
+  | TEXTURE_WRAP_T of wrap_param
+  | TEXTURE_WRAP_R of wrap_param
+  | TEXTURE_BORDER_COLOR of (float * float * float * float)
+  | TEXTURE_PRIORITY of float
 
-  | GL_TEXTURE_COMPARE_MODE of texture_compare_mode  (** only in GL >= 1.4 *)
-  | GL_TEXTURE_COMPARE_FUNC of gl_func               (** only in GL >= 1.4 *)
-  | GL_DEPTH_TEXTURE_MODE of depth_texture_mode      (** only in GL >= 1.4 *)
-  | GL_GENERATE_MIPMAP of bool                       (** only in GL >= 1.4 *)  (* GL_TRUE / GL_FALSE *)
+  | TEXTURE_COMPARE_MODE of texture_compare_mode  (** only in GL >= 1.4 *)
+  | TEXTURE_COMPARE_FUNC of gl_func               (** only in GL >= 1.4 *)
+  | DEPTH_TEXTURE_MODE of depth_texture_mode      (** only in GL >= 1.4 *)
+  | GENERATE_MIPMAP of bool                       (** only in GL >= 1.4 *)  (* GL_TRUE / GL_FALSE *)
 
 end (* _PACK_ENUM *)
 
@@ -1124,22 +1122,22 @@ external texParameter_gen_mpmp: TexParam.tex_param_target -> bool -> unit = "ml_
 
 let texParameter ~target ~param =
   match param with
-  | TexParam.GL_TEXTURE_MIN_FILTER min_filter -> texParameterMinFilter target min_filter
-  | TexParam.GL_TEXTURE_MAG_FILTER mag_filter -> texParameterMagFilter target mag_filter
-  | TexParam.GL_TEXTURE_MIN_LOD  d -> texParameter1f target 0 d
-  | TexParam.GL_TEXTURE_MAX_LOD  d -> texParameter1f target 1 d
-  | TexParam.GL_TEXTURE_PRIORITY d -> texParameter1f target 2 d
-  | TexParam.GL_TEXTURE_BASE_LEVEL d -> texParameter1i target 0 d
-  | TexParam.GL_TEXTURE_MAX_LEVEL  d -> texParameter1i target 1 d
-  | TexParam.GL_TEXTURE_WRAP_S wrap_param -> texParameterWrap target 0 wrap_param
-  | TexParam.GL_TEXTURE_WRAP_T wrap_param -> texParameterWrap target 1 wrap_param
-  | TexParam.GL_TEXTURE_WRAP_R wrap_param -> texParameterWrap target 2 wrap_param
-  | TexParam.GL_TEXTURE_BORDER_COLOR color -> texParameter4f target color
+  | TexParam.TEXTURE_MIN_FILTER min_filter -> texParameterMinFilter target min_filter
+  | TexParam.TEXTURE_MAG_FILTER mag_filter -> texParameterMagFilter target mag_filter
+  | TexParam.TEXTURE_MIN_LOD  d -> texParameter1f target 0 d
+  | TexParam.TEXTURE_MAX_LOD  d -> texParameter1f target 1 d
+  | TexParam.TEXTURE_PRIORITY d -> texParameter1f target 2 d
+  | TexParam.TEXTURE_BASE_LEVEL d -> texParameter1i target 0 d
+  | TexParam.TEXTURE_MAX_LEVEL  d -> texParameter1i target 1 d
+  | TexParam.TEXTURE_WRAP_S wrap_param -> texParameterWrap target 0 wrap_param
+  | TexParam.TEXTURE_WRAP_T wrap_param -> texParameterWrap target 1 wrap_param
+  | TexParam.TEXTURE_WRAP_R wrap_param -> texParameterWrap target 2 wrap_param
+  | TexParam.TEXTURE_BORDER_COLOR color -> texParameter4f target color
 
-  | TexParam.GL_TEXTURE_COMPARE_MODE tex_comp_mode -> assert(false) (** TODO switch GL_VERSION_1_4 *)
-  | TexParam.GL_TEXTURE_COMPARE_FUNC gl_func -> assert(false)       (** TODO switch GL_VERSION_1_4 *)
-  | TexParam.GL_DEPTH_TEXTURE_MODE dtexmode -> assert(false)        (** TODO switch GL_VERSION_1_4 *)
-  | TexParam.GL_GENERATE_MIPMAP gm -> texParameter_gen_mpmp target gm
+  | TexParam.TEXTURE_COMPARE_MODE tex_comp_mode -> assert(false) (** TODO switch GL_VERSION_1_4 *)
+  | TexParam.TEXTURE_COMPARE_FUNC gl_func -> assert(false)       (** TODO switch GL_VERSION_1_4 *)
+  | TexParam.DEPTH_TEXTURE_MODE dtexmode -> assert(false)        (** TODO switch GL_VERSION_1_4 *)
+  | TexParam.GENERATE_MIPMAP gm -> texParameter_gen_mpmp target gm
 ;;
 
 #endif
@@ -1287,7 +1285,7 @@ external clipPlane: plane:Plane.clip_plane -> equation:float array -> unit = "ml
 external clipPlane_unsafe: plane:Plane.clip_plane -> equation:float array -> unit = "ml_glclipplane_unsafe"
 (** same than [glClipPlane] but doesn't check that [equation] contains 4 items. *)
 
-type clip_plane_i = GL_CLIP_PLANE of int
+type clip_plane_i = CLIP_PLANE of int
 
 #ifdef MLI
 
@@ -1302,11 +1300,11 @@ external clipPlanei_unsafe: plane:int -> equation:float array -> unit = "ml_glcl
 
 let glClipPlanei ~plane ~equation =
   match plane with
-  | GL_CLIP_PLANE i -> clipPlanei ~plane:i ~equation ;;
+  | CLIP_PLANE i -> clipPlanei ~plane:i ~equation ;;
 
 let glClipPlanei_unsafe ~plane ~equation =
   match plane with
-  | GL_CLIP_PLANE i -> clipPlanei_unsafe ~plane:i ~equation ;;
+  | CLIP_PLANE i -> clipPlanei_unsafe ~plane:i ~equation ;;
 
 #endif
 
@@ -1349,11 +1347,11 @@ external evalCoord2: u:float -> v:float -> unit = "ml_glevalcoord2d" NOALLOC
     @deprecated in core OpenGL 3. *)
 
 module EvalMesh1 = struct
-type eval_mesh_1 = GL_POINT | GL_LINE
+type eval_mesh_1 = POINT | LINE
 end
 
 module EvalMesh2 = struct
-type eval_mesh_2 = GL_POINT | GL_LINE | GL_FILL
+type eval_mesh_2 = POINT | LINE | FILL
 end
 
 external evalMesh1: mode:EvalMesh1.eval_mesh_1 -> i1:int -> i2:int -> unit = "ml_glevalmesh1" NOALLOC
@@ -1487,22 +1485,22 @@ void glPassThrough( GLfloat token );  !!! deprecated in core OpenGL 3.2
 (* {{{ glFog *)
 
 type fog_mode =
-  | GL_LINEAR
-  | GL_EXP
-  | GL_EXP2
+  | LINEAR
+  | EXP
+  | EXP2
 
 type fog_coord_src =
-  | GL_FOG_COORD
-  | GL_FRAGMENT_DEPTH
+  | FOG_COORD
+  | FRAGMENT_DEPTH
 
 type fog_param =
-  | GL_FOG_MODE of fog_mode
-  | GL_FOG_DENSITY of float
-  | GL_FOG_START of float
-  | GL_FOG_END of float
-  | GL_FOG_INDEX of float
-  | GL_FOG_COLOR of (float * float * float * float)
-  | GL_FOG_COORD_SRC of fog_coord_src
+  | FOG_MODE of fog_mode
+  | FOG_DENSITY of float
+  | FOG_START of float
+  | FOG_END of float
+  | FOG_INDEX of float
+  | FOG_COLOR of (float * float * float * float)
+  | FOG_COORD_SRC of fog_coord_src
 ;;
 
 #ifdef MLI
@@ -1520,16 +1518,16 @@ external fog4: float -> float -> float -> float -> unit = "ml_glfog4" NOALLOC
 
 let glFog ~pname =
   match pname with
-  | GL_FOG_DENSITY density -> fog2 1 density
-  | GL_FOG_START start     -> fog2 2 start
-  | GL_FOG_END _end        -> fog2 3 _end
-  | GL_FOG_INDEX index     -> fog2 4 index
-  | GL_FOG_COORD_SRC   GL_FOG_COORD      -> fog1 1
-  | GL_FOG_COORD_SRC   GL_FRAGMENT_DEPTH -> fog1 2
-  | GL_FOG_MODE   GL_LINEAR -> fog1 3
-  | GL_FOG_MODE   GL_EXP    -> fog1 4
-  | GL_FOG_MODE   GL_EXP2   -> fog1 5
-  | GL_FOG_COLOR(r, g, b, a) -> fog4 r g b a
+  | FOG_DENSITY density -> fog2 1 density
+  | FOG_START start     -> fog2 2 start
+  | FOG_END _end        -> fog2 3 _end
+  | FOG_INDEX index     -> fog2 4 index
+  | FOG_COORD_SRC   FOG_COORD      -> fog1 1
+  | FOG_COORD_SRC   FRAGMENT_DEPTH -> fog1 2
+  | FOG_MODE   LINEAR -> fog1 3
+  | FOG_MODE   EXP    -> fog1 4
+  | FOG_MODE   EXP2   -> fog1 5
+  | FOG_COLOR(r, g, b, a) -> fog4 r g b a
 ;;
 
 #endif
@@ -1605,17 +1603,17 @@ external getUniformLocation: program:shader_program -> name:string -> int = "ml_
 
 
 type get_program_bool =
-  | GL_DELETE_STATUS
-  | GL_LINK_STATUS
-  | GL_VALIDATE_STATUS
+  | DELETE_STATUS
+  | LINK_STATUS
+  | VALIDATE_STATUS
 
 type get_program_int =
-  | GL_INFO_LOG_LENGTH
-  | GL_ATTACHED_SHADERS
-  | GL_ACTIVE_ATTRIBUTES
-  | GL_ACTIVE_ATTRIBUTE_MAX_LENGTH
-  | GL_ACTIVE_UNIFORMS
-  | GL_ACTIVE_UNIFORM_MAX_LENGTH
+  | INFO_LOG_LENGTH
+  | ATTACHED_SHADERS
+  | ACTIVE_ATTRIBUTES
+  | ACTIVE_ATTRIBUTE_MAX_LENGTH
+  | ACTIVE_UNIFORMS
+  | ACTIVE_UNIFORM_MAX_LENGTH
 
 external getProgrami: program:shader_program -> pname:get_program_int -> int = "ml_glgetprogram_int"
 external getProgramb: program:shader_program -> pname:get_program_bool -> bool = "ml_glgetprogram_bool"
@@ -1731,17 +1729,17 @@ module Get = struct (* _PACK_ENUM *)
 #include "enums/get_texture_binding.inc.ml"
 
 type get_light =
-  | GL_SPOT_EXPONENT
-  | GL_SPOT_CUTOFF
-  | GL_CONSTANT_ATTENUATION
-  | GL_LINEAR_ATTENUATION
-  | GL_QUADRATIC_ATTENUATION
-  | GL_SPOT_DIRECTION
-  | GL_AMBIENT
-  | GL_DIFFUSE
-  | GL_SPECULAR
-  | GL_POSITION
-  | GL_LIGHT_MODEL_COLOR_CONTROL
+  | SPOT_EXPONENT
+  | SPOT_CUTOFF
+  | CONSTANT_ATTENUATION
+  | LINEAR_ATTENUATION
+  | QUADRATIC_ATTENUATION
+  | SPOT_DIRECTION
+  | AMBIENT
+  | DIFFUSE
+  | SPECULAR
+  | POSITION
+  | LIGHT_MODEL_COLOR_CONTROL
 end (* _PACK_ENUM *)
 
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glGet.xml}
@@ -1799,23 +1797,23 @@ external getLightModelColorControl: unit -> color_control = "ml_glgetlightmodelc
 
 let glGetLight ~light ~pname =
   let light_i =
-    match light with GL_LIGHT i -> i
+    match light with LIGHT i -> i
   in
   match pname with
-  | Get.GL_SPOT_EXPONENT         -> P1(_glGetLight1 light_i 0)
-  | Get.GL_SPOT_CUTOFF           -> P1(_glGetLight1 light_i 1)
-  | Get.GL_CONSTANT_ATTENUATION  -> P1(_glGetLight1 light_i 2)
-  | Get.GL_LINEAR_ATTENUATION    -> P1(_glGetLight1 light_i 3)
-  | Get.GL_QUADRATIC_ATTENUATION -> P1(_glGetLight1 light_i 4)
+  | Get.SPOT_EXPONENT         -> P1(_glGetLight1 light_i 0)
+  | Get.SPOT_CUTOFF           -> P1(_glGetLight1 light_i 1)
+  | Get.CONSTANT_ATTENUATION  -> P1(_glGetLight1 light_i 2)
+  | Get.LINEAR_ATTENUATION    -> P1(_glGetLight1 light_i 3)
+  | Get.QUADRATIC_ATTENUATION -> P1(_glGetLight1 light_i 4)
 
-  | Get.GL_SPOT_DIRECTION -> let p1, p2, p3 = _glGetLight3 light_i in P3(p1, p2, p3)
+  | Get.SPOT_DIRECTION -> let p1, p2, p3 = _glGetLight3 light_i in P3(p1, p2, p3)
 
-  | Get.GL_AMBIENT  -> let p1, p2, p3, p4 = _glGetLight4 light_i 0 in P4(p1, p2, p3, p4)
-  | Get.GL_DIFFUSE  -> let p1, p2, p3, p4 = _glGetLight4 light_i 1 in P4(p1, p2, p3, p4)
-  | Get.GL_SPECULAR -> let p1, p2, p3, p4 = _glGetLight4 light_i 2 in P4(p1, p2, p3, p4)
-  | Get.GL_POSITION -> let p1, p2, p3, p4 = _glGetLight4 light_i 3 in P4(p1, p2, p3, p4)
+  | Get.AMBIENT  -> let p1, p2, p3, p4 = _glGetLight4 light_i 0 in P4(p1, p2, p3, p4)
+  | Get.DIFFUSE  -> let p1, p2, p3, p4 = _glGetLight4 light_i 1 in P4(p1, p2, p3, p4)
+  | Get.SPECULAR -> let p1, p2, p3, p4 = _glGetLight4 light_i 2 in P4(p1, p2, p3, p4)
+  | Get.POSITION -> let p1, p2, p3, p4 = _glGetLight4 light_i 3 in P4(p1, p2, p3, p4)
 
-  | Get.GL_LIGHT_MODEL_COLOR_CONTROL -> PCC(getLightModelColorControl())
+  | Get.LIGHT_MODEL_COLOR_CONTROL -> PCC(getLightModelColorControl())
 ;;
 
 #endif

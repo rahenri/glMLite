@@ -26,11 +26,11 @@
 
 (** Glu interface *)
 
-external gluPerspective: fovy:float -> aspect:float -> zNear:float -> zFar:float -> unit = "ml_gluperspective"
+external perspective: fovy:float -> aspect:float -> zNear:float -> zFar:float -> unit = "ml_gluperspective"
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/gluPerspective.xml}
     manual page on opengl.org} *)
 
-external gluLookAt: eyeX:float -> eyeY:float -> eyeZ:float ->
+external lookAt: eyeX:float -> eyeY:float -> eyeZ:float ->
                     centerX:float -> centerY:float -> centerZ:float ->
                     upX:float -> upY:float -> upZ:float -> unit
                     = "ml_glulookat_bytecode"
@@ -38,23 +38,23 @@ external gluLookAt: eyeX:float -> eyeY:float -> eyeZ:float ->
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/gluLookAt.xml}
     manual page on opengl.org} *)
 
-external gluOrtho2D: left:float -> right:float -> bottom:float -> top:float -> unit = "ml_gluortho2d"
+external ortho2D: left:float -> right:float -> bottom:float -> top:float -> unit = "ml_gluortho2d"
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/gluOrtho2D.xml}
     manual page on opengl.org} *)
 
 
-external gluErrorString: error:GL.gl_error -> string = "ml_gluerrorstring"
+external errorString: error:GL.gl_error -> string = "ml_gluerrorstring"
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/gluErrorString.xml}
     manual page on opengl.org} *)
 
 
-external gluPickMatrix: x:float -> y:float -> width:float -> height:float ->
+external pickMatrix: x:float -> y:float -> width:float -> height:float ->
                         viewport:int * int * int * int -> unit = "ml_glupickmatrix"
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/gluPickMatrix.xml}
     manual page on opengl.org} *)
 
 
-external gluUnProject: win_x:float -> win_y:float -> win_z:float ->
+external unProject: win_x:float -> win_y:float -> win_z:float ->
             model:float array array -> proj:float array array -> viewport:int array ->
             float * float * float
             = "ml_gluunproject_bytecode"
@@ -62,21 +62,21 @@ external gluUnProject: win_x:float -> win_y:float -> win_z:float ->
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/gluUnProject.xml}
     manual page on opengl.org} *)
 
-external gluUnProjectFlat: win_x:float -> win_y:float -> win_z:float ->
+external unProjectFlat: win_x:float -> win_y:float -> win_z:float ->
             model:float array -> proj:float array -> viewport:int array ->
             float * float * float
             = "ml_gluunproject_flat_bytecode"
               "ml_gluunproject_flat_native"
 (** same than [gluUnProject] but optimised *)
 
-external gluUnProjectUtil: x:int -> y:int -> float * float * float = "ml_util_gluunproject"
+external unProjectUtil: x:int -> y:int -> float * float * float = "ml_util_gluunproject"
 (** {b Utility} provides a classic use of [gluUnProject] with default parameters,
     the modelview matrix, the projection matrix, and the current viewport. *)
 
-external gluUnProjectPixel: x:int -> y:int -> float * float * float = "ml_gluunproject_pixel"
+external unProjectPixel: x:int -> y:int -> float * float * float = "ml_gluunproject_pixel"
 (** {b Utility} Same as [gluUnProjectUtil] but also checks the depth of the pixel. *)
 
-external gluProject: win_x:float -> win_y:float -> win_z:float ->
+external project: win_x:float -> win_y:float -> win_z:float ->
             model:float array array -> proj:float array array -> viewport:int array ->
             float * float * float
             = "ml_gluproject_bytecode"
@@ -84,14 +84,14 @@ external gluProject: win_x:float -> win_y:float -> win_z:float ->
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/gluProject.xml}
     manual page on opengl.org} *)
 
-external gluProjectFlat: win_x:float -> win_y:float -> win_z:float ->
+external projectFlat: win_x:float -> win_y:float -> win_z:float ->
             model:float array -> proj:float array -> viewport:int array ->
             float * float * float
             = "ml_gluproject_flat_bytecode"
               "ml_gluproject_flat_native"
 (** same than [gluProject] but optimised *)
 
-external gluProjectUtil: obj_x:float -> obj_y:float -> obj_z:float -> float * float * float = "ml_gluproject_util"
+external projectUtil: obj_x:float -> obj_y:float -> obj_z:float -> float * float * float = "ml_gluproject_util"
 (** {b Utility} provides a classic use of [gluProject] with default parameters,
     the modelview matrix, the projection matrix, and the current viewport. *)
 
@@ -100,7 +100,7 @@ type glu_desc =
   | GLU_VERSION
   | GLU_EXTENSIONS
 
-external gluGetString: name:glu_desc -> string = "ml_glugetstring"
+external getString: name:glu_desc -> string = "ml_glugetstring"
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/gluGetString.xml}
     manual page on opengl.org} *)
 
@@ -108,7 +108,7 @@ external gluGetString: name:glu_desc -> string = "ml_glugetstring"
 
 (** {3 Mipmaps} *)
 
-external gluBuild2DMipmaps:
+external build2DMipmaps:
             (* target:GL.TexTarget.target_2d -> *)
             internal_format:GL.InternalFormat.internal_format ->
             width:int -> height:int ->
@@ -120,7 +120,7 @@ external gluBuild2DMipmaps:
     manual page on opengl.org} *)
 
 
-external gluBuild1DMipmaps:
+external build1DMipmaps:
             (* target:GL.TexTarget.target_1d -> *)
             internal_format:GL.InternalFormat.internal_format ->
             width:int ->
@@ -131,7 +131,7 @@ external gluBuild1DMipmaps:
     manual page on opengl.org} *)
 
 
-external gluBuild3DMipmaps:
+external build3DMipmaps:
             (* target:GL.TexTarget.target_3d -> *)
             internal_format:GL.InternalFormat.internal_format ->
             width:int -> height:int -> depth:int ->
@@ -148,11 +148,11 @@ external gluBuild3DMipmaps:
 (** {3 Quadric Functions} *)
 
 type glu_quadric
-external gluNewQuadric: unit -> glu_quadric = "ml_glunewquadric"
+external newQuadric: unit -> glu_quadric = "ml_glunewquadric"
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/gluNewQuadric.xml}
     manual page on opengl.org} *)
 
-external gluDeleteQuadric: quad:glu_quadric -> unit = "ml_gludeletequadric"
+external deleteQuadric: quad:glu_quadric -> unit = "ml_gludeletequadric"
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/gluDeleteQuadric.xml}
     manual page on opengl.org} *)
 
@@ -162,30 +162,30 @@ type draw_style =
   | GLU_FILL
   | GLU_SILHOUETTE
 
-external gluQuadricDrawStyle: quad:glu_quadric -> draw_style:draw_style -> unit = "ml_gluquadricdrawstyle"
+external quadricDrawStyle: quad:glu_quadric -> draw_style:draw_style -> unit = "ml_gluquadricdrawstyle"
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/gluQuadricDrawStyle.xml}
     manual page on opengl.org} *)
 
-external gluQuadricTexture: quad:glu_quadric -> texture:bool -> unit = "ml_gluquadrictexture"
+external quadricTexture: quad:glu_quadric -> texture:bool -> unit = "ml_gluquadrictexture"
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/gluQuadricTexture.xml}
     manual page on opengl.org} *)
 
-external gluSphere: quad:glu_quadric -> radius:float -> slices:int -> stacks:int -> unit = "ml_glusphere"
+external sphere: quad:glu_quadric -> radius:float -> slices:int -> stacks:int -> unit = "ml_glusphere"
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/gluSphere.xml}
     manual page on opengl.org} *)
 
-external gluCylinder: quad:glu_quadric -> base:float -> top:float -> height:float ->
+external cylinder: quad:glu_quadric -> base:float -> top:float -> height:float ->
                       slices:int -> stacks:int -> unit
                       = "ml_glucylinder_bytecode"
                         "ml_glucylinder_native"
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/gluCylinder.xml}
     manual page on opengl.org} *)
 
-external gluDisk: quad:glu_quadric -> inner:float -> outer:float -> slices:int -> loops:int -> unit = "ml_gludisk"
+external disk: quad:glu_quadric -> inner:float -> outer:float -> slices:int -> loops:int -> unit = "ml_gludisk"
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/gluDisk.xml}
     manual page on opengl.org} *)
 
-external gluPartialDisk: quad:glu_quadric -> inner:float -> outer:float -> slices:int ->
+external partialDisk: quad:glu_quadric -> inner:float -> outer:float -> slices:int ->
                          loops:int -> start:float -> sweep:float -> unit
                          = "ml_glupartialdisk_bytecode"
                            "ml_glupartialdisk_native"
@@ -196,7 +196,7 @@ type orientation =
   | GLU_OUTSIDE
   | GLU_INSIDE
 
-external gluQuadricOrientation: quad:glu_quadric -> orientation:orientation -> unit = "ml_gluquadricorientation"
+external quadricOrientation: quad:glu_quadric -> orientation:orientation -> unit = "ml_gluquadricorientation"
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/gluQuadricOrientation.xml}
     manual page on opengl.org} *)
 
@@ -205,7 +205,7 @@ type normal =
   | GLU_FLAT
   | GLU_SMOOTH
 
-external gluQuadricNormals: quad:glu_quadric -> normal:normal -> unit = "ml_gluquadricnormals"
+external quadricNormals: quad:glu_quadric -> normal:normal -> unit = "ml_gluquadricnormals"
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/gluQuadricNormals.xml}
     manual page on opengl.org} *)
 
@@ -218,34 +218,34 @@ gluQuadricCallback
 (** {3 Tesselation} *)
 
 type glu_tesselator
-external gluNewTess: unit -> glu_tesselator = "ml_glunewtess"
+external newTess: unit -> glu_tesselator = "ml_glunewtess"
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/gluNewTess.xml}
     manual page on opengl.org} *)
 
-external gluDeleteTess: tess:glu_tesselator -> unit = "ml_gludeletetess"
+external deleteTess: tess:glu_tesselator -> unit = "ml_gludeletetess"
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/gluDeleteTess.xml}
     manual page on opengl.org} *)
 
-external gluBeginPolygon: tess:glu_tesselator -> unit = "ml_glubeginpolygon"
+external beginPolygon: tess:glu_tesselator -> unit = "ml_glubeginpolygon"
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/gluBeginPolygon.xml}
     manual page on opengl.org} *)
-external gluEndPolygon: tess:glu_tesselator -> unit = "ml_gluendpolygon"
+external endPolygon: tess:glu_tesselator -> unit = "ml_gluendpolygon"
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/gluEndPolygon.xml}
     manual page on opengl.org} *)
 
-external gluTessBeginPolygon: tess:glu_tesselator -> unit = "ml_glutessbeginpolygon"
-external gluTessBeginPolygonData: tess:glu_tesselator -> data:'a -> unit = "ml_glutessbeginpolygon_data"
+external tessBeginPolygon: tess:glu_tesselator -> unit = "ml_glutessbeginpolygon"
+external tessBeginPolygonData: tess:glu_tesselator -> data:'a -> unit = "ml_glutessbeginpolygon_data"
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/gluTessBeginPolygon.xml}
     manual page on opengl.org} *)
 
-external gluTessEndPolygon: tess:glu_tesselator -> unit = "ml_glutessendpolygon"
+external tessEndPolygon: tess:glu_tesselator -> unit = "ml_glutessendpolygon"
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/gluTessEndPolygon.xml}
     manual page on opengl.org} *)
 
-external gluTessBeginContour: tess:glu_tesselator -> unit = "ml_glutessbegincontour"
+external tessBeginContour: tess:glu_tesselator -> unit = "ml_glutessbegincontour"
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/gluTessBeginContour.xml}
     manual page on opengl.org} *)
-external gluTessEndContour: tess:glu_tesselator -> unit = "ml_glutessendcontour"
+external tessEndContour: tess:glu_tesselator -> unit = "ml_glutessendcontour"
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/gluTessEndContour.xml}
     manual page on opengl.org} *)
 
@@ -256,19 +256,19 @@ type tess_contour =
   | GLU_EXTERIOR
   | GLU_UNKNOWN
 
-external gluNextContour: tess:glu_tesselator -> contour:tess_contour -> unit = "ml_glunextcontour"
+external nextContour: tess:glu_tesselator -> contour:tess_contour -> unit = "ml_glunextcontour"
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/gluNextContour.xml}
     manual page on opengl.org} *)
 
-external gluTessVertex: tess:glu_tesselator -> x:float -> y:float -> z:float -> unit = "ml_glutessvertex"
+external tessVertex: tess:glu_tesselator -> x:float -> y:float -> z:float -> unit = "ml_glutessvertex"
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/gluTessVertex.xml}
     manual page on opengl.org} *)
 
-external gluTessNormal: tess:glu_tesselator -> x:float -> y:float -> z:float -> unit = "ml_glutessnormal"
+external tessNormal: tess:glu_tesselator -> x:float -> y:float -> z:float -> unit = "ml_glutessnormal"
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/gluTessNormal.xml}
     manual page on opengl.org} *)
 
-external gluTesselate: glu_tesselator -> (float * float * float) array -> unit = "tesselate_points"
+external tesselate: glu_tesselator -> (float * float * float) array -> unit = "tesselate_points"
 (** Is equivalent to:{[
     gluTessBeginPolygon ~tess;
       gluTessBeginContour ~tess;
@@ -279,11 +279,11 @@ external gluTesselate: glu_tesselator -> (float * float * float) array -> unit =
 
 
 #ifdef MLI
-val gluTesselateIter: tess:glu_tesselator -> data:(float * float * float) array list -> unit
+val tesselateIter: tess:glu_tesselator -> data:(float * float * float) array list -> unit
 #else // ML
-external gluTesselateIter: tess:glu_tesselator -> data:(float * float * float) array list -> len:int -> unit = "tesselate_iter_points"
-let gluTesselateIter ~tess ~data =
-  gluTesselateIter ~tess ~data ~len:(List.length data);
+external tesselateIter: tess:glu_tesselator -> data:(float * float * float) array list -> len:int -> unit = "tesselate_iter_points"
+let tesselateIter ~tess ~data =
+  tesselateIter ~tess ~data ~len:(List.length data);
 ;;
 #endif
 (** Is equivalent to:{[
@@ -310,25 +310,25 @@ type tess_property =
   | GLU_TESS_TOLERANCE of float
 
 
-external gluGetTessWindingRule: tess:glu_tesselator -> winding:tess_winding -> unit = "ml_glugettesswindingrule"
-external gluGetTessBoundaryOnly: tess:glu_tesselator -> boundary_only:bool -> unit = "ml_glugettessboundaryonly"
-external gluGetTessTolerance: tess:glu_tesselator -> tolerance:float -> unit = "ml_glugettesstolerance"
+external getTessWindingRule: tess:glu_tesselator -> winding:tess_winding -> unit = "ml_glugettesswindingrule"
+external getTessBoundaryOnly: tess:glu_tesselator -> boundary_only:bool -> unit = "ml_glugettessboundaryonly"
+external getTessTolerance: tess:glu_tesselator -> tolerance:float -> unit = "ml_glugettesstolerance"
 
 (* TODO
 void gluGetTessProperty (GLUtesselator* tess, GLenum which, GLdouble* data);
 *)
 
 #ifdef MLI
-val gluTessProperty: tess:glu_tesselator -> prop:tess_property -> unit
+val tessProperty: tess:glu_tesselator -> prop:tess_property -> unit
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/gluTessProperty.xml}
     manual page on opengl.org} *)
 
 #else // ML
-let gluTessProperty ~tess ~prop =
+let tessProperty ~tess ~prop =
   match prop with
-  | GLU_TESS_WINDING_RULE  winding       -> gluGetTessWindingRule ~tess ~winding
-  | GLU_TESS_BOUNDARY_ONLY boundary_only -> gluGetTessBoundaryOnly ~tess ~boundary_only
-  | GLU_TESS_TOLERANCE     tolerance     -> gluGetTessTolerance ~tess ~tolerance
+  | GLU_TESS_WINDING_RULE  winding       -> getTessWindingRule ~tess ~winding
+  | GLU_TESS_BOUNDARY_ONLY boundary_only -> getTessBoundaryOnly ~tess ~boundary_only
+  | GLU_TESS_TOLERANCE     tolerance     -> getTessTolerance ~tess ~tolerance
 ;;
 #endif
 
@@ -356,7 +356,7 @@ type tess_callback =
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/gluTessCallback.xml}
     manual page on opengl.org} *)
 
-external gluTessDefaultCallback: tess:glu_tesselator -> cb:tess_callback -> unit = "ml_glutesscallback_default"
+external tessDefaultCallback: tess:glu_tesselator -> cb:tess_callback -> unit = "ml_glutesscallback_default"
 (** Sets default callbacks for a classic use.
     [GLU_TESS_BEGIN] and [GLU_TESS_END] callbacks are set to [glBegin] and [glEnd].
     [GLU_TESS_VERTEX] callback calls [glVertex3] preceded by a call to
@@ -382,49 +382,49 @@ type tess_error =
 
 
 #ifdef MLI
-val gluCallbackTessVertex: tess:glu_tesselator -> tess_vertex:(x:float -> y:float -> z:float -> unit) -> unit
+val callbackTessVertex: tess:glu_tesselator -> tess_vertex:(x:float -> y:float -> z:float -> unit) -> unit
 #else // ML
-external gluCallbackTessVertex: tess:glu_tesselator -> unit = "ml_glutess_cb_vertex"
-let gluCallbackTessVertex ~tess ~tess_vertex =
+external callbackTessVertex: tess:glu_tesselator -> unit = "ml_glutess_cb_vertex"
+let callbackTessVertex ~tess ~tess_vertex =
   Callback.register "GLU callback tess vertex" tess_vertex;
-  gluCallbackTessVertex ~tess;
+  callbackTessVertex ~tess;
 ;;
 #endif
 
 
 #ifdef MLI
-val gluCallbackTessBegin: tess:glu_tesselator -> tess_begin:(prim:GL.primitive -> unit) -> unit
+val callbackTessBegin: tess:glu_tesselator -> tess_begin:(prim:GL.primitive -> unit) -> unit
 #else // ML
-external gluCallbackTessBegin: tess:glu_tesselator -> unit = "ml_glutess_cb_begin"
-let gluCallbackTessBegin ~tess ~tess_begin =
+external callbackTessBegin: tess:glu_tesselator -> unit = "ml_glutess_cb_begin"
+let callbackTessBegin ~tess ~tess_begin =
   Callback.register "GLU callback tess begin" tess_begin;
-  gluCallbackTessBegin ~tess;
+  callbackTessBegin ~tess;
 ;;
 #endif
 
 
 #ifdef MLI
-val gluCallbackTessEnd: tess:glu_tesselator -> tess_end:(unit -> unit) -> unit
+val callbackTessEnd: tess:glu_tesselator -> tess_end:(unit -> unit) -> unit
 #else // ML
-external gluCallbackTessEnd: tess:glu_tesselator -> unit = "ml_glutess_cb_end"
-let gluCallbackTessEnd ~tess ~tess_end =
+external callbackTessEnd: tess:glu_tesselator -> unit = "ml_glutess_cb_end"
+let callbackTessEnd ~tess ~tess_end =
   Callback.register "GLU callback tess end" tess_end;
-  gluCallbackTessEnd ~tess;
+  callbackTessEnd ~tess;
 ;;
 #endif
 
 
 #ifdef MLI
-val gluCallbackTessError: tess:glu_tesselator -> tess_error:(error:tess_error -> unit) -> unit
+val callbackTessError: tess:glu_tesselator -> tess_error:(error:tess_error -> unit) -> unit
 #else // ML
-external gluCallbackTessError: tess:glu_tesselator -> unit = "ml_glutess_cb_error"
-let gluCallbackTessError ~tess ~tess_error =
+external callbackTessError: tess:glu_tesselator -> unit = "ml_glutess_cb_error"
+let callbackTessError ~tess ~tess_error =
   Callback.register "GLU callback tess error" tess_error;
-  gluCallbackTessError ~tess;
+  callbackTessError ~tess;
 ;;
 #endif
 
-external gluTessErrorString: error:tess_error -> string = "ml_glutesserrorstring"
+external tessErrorString: error:tess_error -> string = "ml_glutesserrorstring"
 (** same than [gluErrorString] but for type [tess_error] *)
 
 
@@ -432,15 +432,15 @@ external gluTessErrorString: error:tess_error -> string = "ml_glutesserrorstring
 
 type glu_nurbs
 
-external gluNewNurbsRenderer: unit -> glu_nurbs = "ml_glunewnurbsrenderer"
+external newNurbsRenderer: unit -> glu_nurbs = "ml_glunewnurbsrenderer"
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/gluNewNurbsRenderer.xml}
     manual page on opengl.org} *)
 
-external gluBeginSurface: nurb:glu_nurbs -> unit = "ml_glubeginsurface"
+external beginSurface: nurb:glu_nurbs -> unit = "ml_glubeginsurface"
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/gluBeginSurface.xml}
     manual page on opengl.org} *)
 
-external gluEndSurface: nurb:glu_nurbs -> unit = "ml_gluendsurface"
+external endSurface: nurb:glu_nurbs -> unit = "ml_gluendsurface"
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/gluEndSurface.xml}
     manual page on opengl.org} *)
 
@@ -474,14 +474,14 @@ type nurbs_property =
   | GLU_NURBS_MODE of nurbs_mode
 
 #ifdef MLI
-val gluNurbsProperty: nurb:glu_nurbs -> property:nurbs_property -> unit
+val nurbsProperty: nurb:glu_nurbs -> property:nurbs_property -> unit
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/gluNurbsProperty.xml}
     manual page on opengl.org} *)
 #else // ML
 external _gluNurbsProperty1: glu_nurbs -> int -> unit = "ml_glunurbsproperty1"
 external _gluNurbsProperty2: glu_nurbs -> int -> float -> unit = "ml_glunurbsproperty2"
 
-let gluNurbsProperty ~nurb ~property =
+let nurbsProperty ~nurb ~property =
   match property with
   | GLU_SAMPLING_TOLERANCE v ->   _gluNurbsProperty2 nurb 0 v
   | GLU_PARAMETRIC_TOLERANCE v -> _gluNurbsProperty2 nurb 1 v
@@ -513,7 +513,7 @@ type surface_type =
   | GLU_MAP2_VERTEX_3
   | GLU_MAP2_VERTEX_4
 
-external gluNurbsSurface: nurb:glu_nurbs ->
+external nurbsSurface: nurb:glu_nurbs ->
     sKnots:float array ->
     tKnots:float array ->
     sStride:int ->
@@ -531,17 +531,17 @@ external gluNurbsSurface: nurb:glu_nurbs ->
 
 (** {3 Trimming} *)
 
-external gluBeginTrim: nurb:glu_nurbs -> unit = "ml_glubegintrim"
+external beginTrim: nurb:glu_nurbs -> unit = "ml_glubegintrim"
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/gluBeginTrim.xml}
     manual page on opengl.org} *)
 
-external gluEndTrim: nurb:glu_nurbs -> unit = "ml_gluendtrim"
+external endTrim: nurb:glu_nurbs -> unit = "ml_gluendtrim"
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/gluEndTrim.xml}
     manual page on opengl.org} *)
 
 type pwl_curve_type = GLU_MAP1_TRIM_2 | GLU_MAP1_TRIM_3
 
-external gluPwlCurve: nurb:glu_nurbs -> count:int -> data:float array -> stride:int -> curve_type:pwl_curve_type -> unit = "ml_glupwlcurve"
+external pwlCurve: nurb:glu_nurbs -> count:int -> data:float array -> stride:int -> curve_type:pwl_curve_type -> unit = "ml_glupwlcurve"
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/gluPwlCurve.xml}
     manual page on opengl.org} *)
 
@@ -552,7 +552,7 @@ type nurbs_curve_type =
   | GLU_MAP1_TRIM_2
   | GLU_MAP1_TRIM_3
 end
-external gluNurbsCurve: nurb:glu_nurbs -> knots:float array -> stride:int ->
+external nurbsCurve: nurb:glu_nurbs -> knots:float array -> stride:int ->
     control:float array -> order:int -> curve_type:N.nurbs_curve_type -> unit
     = "ml_glunurbscurve_bytecode"
       "ml_glunurbscurve_native"

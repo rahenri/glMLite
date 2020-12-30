@@ -151,7 +151,7 @@ external ignoreKeyRepeat: ignore:bool -> unit = "ml_glutignorekeyrepeat"
 
 type menu_id
 
-val glutCreateMenu: menu:(value:int -> unit) -> menu_id
+val createMenu: menu:(value:int -> unit) -> menu_id
 (** {{:http://www.opengl.org/resources/libraries/glut/spec3/node36.html}
     doc on opengl.org} *)
 
@@ -196,50 +196,50 @@ external detachMenu: button:mouse_button -> unit = "ml_glutdetachmenu"
 (** {{:http://www.opengl.org/resources/libraries/glut/spec3/node45.html}
     Index of Callback Registration on OpenGL.org} *)
 
-val glutDisplayFunc: display:(unit -> unit) -> unit
+val displayFunc: display:(unit -> unit) -> unit
 (** {{:http://www.opengl.org/resources/libraries/glut/spec3/node46.html}
     doc on opengl.org} *)
 
 (* TODO
     glutOverlayDisplayFunc
 *)
-val glutReshapeFunc: reshape:(width:int -> height:int -> unit) -> unit
+val reshapeFunc: reshape:(width:int -> height:int -> unit) -> unit
 (** {{:http://www.opengl.org/resources/libraries/glut/spec3/node48.html}
     doc on opengl.org} *)
 
-val glutKeyboardFunc: keyboard:(key:char -> x:int -> y:int -> unit) -> unit
+val keyboardFunc: keyboard:(key:char -> x:int -> y:int -> unit) -> unit
 (** {{:http://www.opengl.org/resources/libraries/glut/spec3/node49.html}
     doc on opengl.org} *)
 
-val glutKeyboardUpFunc: keyboard_up:(key:char -> x:int -> y:int -> unit) -> unit
+val keyboardUpFunc: keyboard_up:(key:char -> x:int -> y:int -> unit) -> unit
 
 #include "enums/mouse_button_state.inc.ml"
-val glutMouseFunc: mouse:(button:mouse_button -> state:mouse_button_state -> x:int -> y:int -> unit) -> unit
+val mouseFunc: mouse:(button:mouse_button -> state:mouse_button_state -> x:int -> y:int -> unit) -> unit
 (** {{:http://www.opengl.org/resources/libraries/glut/spec3/node50.html}
     doc on opengl.org} *)
 
-val glutMotionFunc: motion:(x:int -> y:int -> unit) -> unit
-val glutPassiveMotionFunc: passive:(x:int -> y:int -> unit) -> unit
+val motionFunc: motion:(x:int -> y:int -> unit) -> unit
+val passiveMotionFunc: passive:(x:int -> y:int -> unit) -> unit
 (** {{:http://www.opengl.org/resources/libraries/glut/spec3/node51.html}
     doc on opengl.org} *)
 
 
 #include "enums/visibility_state.inc.ml"
-val glutVisibilityFunc: visibility:(state:visibility_state -> unit) -> unit
+val visibilityFunc: visibility:(state:visibility_state -> unit) -> unit
 (** {{:http://www.opengl.org/resources/libraries/glut/spec3/node52.html}
     doc on opengl.org} *)
 
 #include "enums/entry_state.inc.ml"
-val glutEntryFunc: entry:(state:entry_state -> unit) -> unit
+val entryFunc: entry:(state:entry_state -> unit) -> unit
 (** {{:http://www.opengl.org/resources/libraries/glut/spec3/node53.html}
     doc on opengl.org} *)
 
 #include "enums/special_key.inc.ml"
-val glutSpecialFunc: special:(key:special_key -> x:int -> y:int -> unit) -> unit
+val specialFunc: special:(key:special_key -> x:int -> y:int -> unit) -> unit
 (** {{:http://www.opengl.org/resources/libraries/glut/spec3/node54.html}
     doc on opengl.org} *)
 
-val glutSpecialUpFunc: special_up:(key:special_key -> x:int -> y:int -> unit) -> unit
+val specialUpFunc: special_up:(key:special_key -> x:int -> y:int -> unit) -> unit
 (* TODO
     glutSpaceballMotionFunc
     glutSpaceballRotateFunc
@@ -250,13 +250,13 @@ val glutSpecialUpFunc: special_up:(key:special_key -> x:int -> y:int -> unit) ->
     glutTabletButtonFunc
     glutMenuStatusFunc
 *)
-val glutIdleFunc: idle:(unit -> unit) -> unit
+val idleFunc: idle:(unit -> unit) -> unit
 (** {{:http://www.opengl.org/resources/libraries/glut/spec3/node63.html}
     doc on opengl.org} *)
 
 external removeIdleFunc: unit -> unit = "ml_glutremoveidlefunc"
 
-val glutTimerFunc: msecs:int -> timer:(value:'a -> unit) -> value:'a -> unit
+val timerFunc: msecs:int -> timer:(value:'a -> unit) -> value:'a -> unit
 (** {{:http://www.opengl.org/resources/libraries/glut/spec3/node64.html}
     doc on opengl.org} *)
 

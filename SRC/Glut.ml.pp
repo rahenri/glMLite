@@ -71,37 +71,37 @@ external initContextVersion: major:int -> minor:int -> unit = "ml_glutinitcontex
 external initContextProfile: profile:context_profile -> unit = "ml_glutinitcontextprofile"
 
 external displayFunc: unit -> unit = "ml_glutdisplayfunc"
-let glutDisplayFunc ~display =
+let displayFunc ~display =
   Callback.register "GL callback display" display;
   displayFunc();
 ;;
 
 external reshapeFunc: unit -> unit = "ml_glutreshapefunc"
-let glutReshapeFunc ~reshape =
+let reshapeFunc ~reshape =
   Callback.register "GL callback reshape" reshape;
   reshapeFunc();
 ;;
 
 external keyboardFunc: unit -> unit = "ml_glutkeyboardfunc"
-let glutKeyboardFunc ~keyboard =
+let keyboardFunc ~keyboard =
   Callback.register "GL callback keyboard" keyboard;
   keyboardFunc();
 ;;
 
 external keyboardUpFunc: unit -> unit = "ml_glutkeyboardupfunc"
-let glutKeyboardUpFunc ~keyboard_up =
+let keyboardUpFunc ~keyboard_up =
   Callback.register "GL callback keyboard-up" keyboard_up;
   keyboardUpFunc();
 ;;
 
 external passiveMotionFunc: unit -> unit = "ml_glutpassivemotionfunc"
-let glutPassiveMotionFunc ~passive =
+let passiveMotionFunc ~passive =
   Callback.register "GL callback passive" passive;
   passiveMotionFunc();
 ;;
 
 external motionFunc: unit -> unit = "ml_glutmotionfunc"
-let glutMotionFunc ~motion =
+let motionFunc ~motion =
   Callback.register "GL callback motion" motion;
   motionFunc();
 ;;
@@ -109,7 +109,7 @@ let glutMotionFunc ~motion =
 #include "enums/mouse_button_state.inc.ml"
 
 external mouseFunc: unit -> unit = "ml_glutmousefunc"
-let glutMouseFunc ~mouse =
+let mouseFunc ~mouse =
   Callback.register "GL callback mouse" mouse;
   mouseFunc ();
 ;;
@@ -117,7 +117,7 @@ let glutMouseFunc ~mouse =
 #include "enums/visibility_state.inc.ml"
 
 external visibilityFunc: unit -> unit = "ml_glutvisibilityfunc"
-let glutVisibilityFunc ~visibility =
+let visibilityFunc ~visibility =
   Callback.register "GL callback visibility" visibility;
   visibilityFunc();
 ;;
@@ -125,7 +125,7 @@ let glutVisibilityFunc ~visibility =
 #include "enums/entry_state.inc.ml"
 
 external entryFunc: unit -> unit = "ml_glutentryfunc"
-let glutEntryFunc ~entry =
+let entryFunc ~entry =
   Callback.register "GL callback entry" entry;
   entryFunc ();
 ;;
@@ -133,19 +133,19 @@ let glutEntryFunc ~entry =
 #include "enums/special_key.inc.ml"
 
 external specialFunc: unit -> unit = "ml_glutspecialfunc"
-let glutSpecialFunc ~special =
+let specialFunc ~special =
   Callback.register "GL callback special" special;
   specialFunc();
 ;;
 
 external specialUpFunc: unit -> unit = "ml_glutspecialupfunc"
-let glutSpecialUpFunc ~special_up =
+let specialUpFunc ~special_up =
   Callback.register "GL callback special-up" special_up;
   specialUpFunc();
 ;;
 
 external idleFunc: unit -> unit = "ml_glutidlefunc"
-let glutIdleFunc ~idle =
+let idleFunc ~idle =
   Callback.register "GL callback idle" idle;
   idleFunc();
 ;;
@@ -156,7 +156,7 @@ external removeIdleFunc: unit -> unit = "ml_glutremoveidlefunc"
 type menu_id = int
 
 external createMenu: unit -> menu_id = "ml_glutcreatemenu"
-let glutCreateMenu ~menu =
+let createMenu ~menu =
   Callback.register "GL callback menu" menu;
   createMenu();
 ;;
@@ -176,7 +176,7 @@ external _glutTimerFunc : int -> int -> unit = "ml_gluttimerfunc"
 
 let timer_count = ref 0 ;;
 
-let glutTimerFunc ~msecs ~timer:(cb:(value:'a -> unit)) ~value =
+let timerFunc ~msecs ~timer:(cb:(value:'a -> unit)) ~value =
   let i = !timer_count in
   incr timer_count;
   Hashtbl.add timer_hashtbl i (fun () ->

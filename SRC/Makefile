@@ -644,7 +644,7 @@ cleanmeta clean-meta:
 install_findlib_core: $(DIST_FILES_CORE)  $(SO_DIST_FILES_CORE) META
 	$(OCAMLFIND) install glMLite $^
 
-install_findlib: $(DIST_FILES_CORE)  $(SO_DIST_FILES_CORE) $(DIST_FILES_JPEG) $(SO_DIST_FILES_JPEG) META
+install_findlib: $(DIST_FILES_CORE)  $(SO_DIST_FILES_CORE) $(DIST_FILES_JPEG) $(SO_DIST_FILES_JPEG) $(DIST_FILES_PNG) $(SO_DIST_FILES_PNG) META
 	$(OCAMLFIND) install glMLite $^
 
 uninstall_findlib:

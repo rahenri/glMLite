@@ -815,7 +815,15 @@ external isEnabled: Enabled.enabled_cap -> bool = "ml_glisenabled" NOALLOC
 
 (** {3 Texture mapping} *)
 
+#ifdef MLI
 type texture_id = private int
+val invalid_texture_id : texture_id
+#else
+type texture_id = int
+let invalid_texture_id : texture_id =  -1
+;;
+#endif
+
 external genTextures: n:int -> texture_id array = "ml_glgentextures" (* DOES ALLOC *)
 (** {{:http://www.opengl.org/sdk/docs/man/xhtml/glGenTextures.xml}
     manual page on opengl.org} *)
